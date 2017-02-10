@@ -1,0 +1,69 @@
+footer {
+    width: 100%;
+    height: 225px;
+    overflow: hidden;
+    font-size: 14px;
+    background: url(../assets/images/home/bgi-footer.jpg) center no-repeat #201f1b;
+    font-family: Arial, Tahoma, "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", sans-serif;
+
+    .footer-top {
+        padding: 25px 0;
+        line-height: 24px;
+        border-bottom: #4d4d4d solid 1px;
+        height: 75px;
+    }
+
+    .nav-bar {
+        float: left;
+        padding-left: 0;
+        li {
+            list-style: none;
+            float: left;
+            margin-right: 20px;
+            display: inline-block;
+        }
+            a {
+                color: #fff;
+            }
+    }
+
+    .hotlines {
+        float: right;
+        .icon {
+            position: relative;
+            top: -10px;
+            float: left;
+            width: 40px;
+            height: 40px;
+            margin-right: 20px;
+
+            @include setPos(-392px, -444px);
+        }
+        .num {
+            float: left;
+                color: #999;
+        }
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+        padding: 20px 0;
+        line-height: 24px;
+        color: #999;
+    }
+
+    .footer-bottom-letter {
+        font-size: 0;
+    }
+
+    .footer-bottom-letter span, .footer-bottom-letter a {
+        display: inline-block;
+        font-size: 12px;
+    }
+
+    .footer-bottom-letter a {
+        color: #999;
+        padding: 0 2px;
+        margin: 0 1px;
+    }
+}

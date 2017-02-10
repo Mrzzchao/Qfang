@@ -1,0 +1,139 @@
+.oldHouseShow-div {
+    .font-gray {
+        color: #999;
+    }
+    .font-hei {
+        color: #333;
+    }
+    .title {
+        max-width: 80%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        position: relative;
+        font-size: 28px;
+        line-height: 1.5;
+        font-weight: bold;
+    }
+
+    .house-info-wrapper {
+        background: url(../assets/images/oldHouse/CvtcMliZNreAIC5LAAGp2luhPOs757.jpg) center no-repeat;
+        background-size: cover;
+        padding: 30px 0;
+    }
+    .carousel {
+        padding-right: 0;
+        margin-right: -40px;
+    }
+    .house-info {
+        font-size: 14px;
+        padding: 22px 0 22px 22px;
+        background: #fff;
+        overflow: hidden;
+
+        .houseMsg > .row {
+            padding: 22px 0;
+            border-bottom: #ededed solid 1px;
+        }
+        .houseMsg > .last {
+            border-bottom: none;
+        }
+
+        .price {
+            .col-md-5 {
+                color: $c2;
+
+            }
+
+            .num {
+                padding-right: 5px;
+                font-size: 52px;
+                font-weight: bold;
+            }
+
+            .avgPrice {
+                font-size: 22px;
+                margin-top: 15px;
+                .pay {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .first {
+            margin-top: 0 !important;
+        }
+        .placeMsg {
+            .row {
+                margin-top: 22px;
+                font-size: 14px;
+
+                // .col-md-8 {
+                //     font-size: 12px;
+                // }
+            }
+        }
+
+        .buildingMsg {
+            .row {
+                margin-top: 10px;
+                div {
+                    text-align: center;
+                }
+            }
+            .font-big {
+                font-size: 22px;
+                font-weight: bold;
+                text-align: left;
+            }
+            .font-small {
+                white-space: nowrap;
+                text-align: center;
+            }
+        }
+
+        .owner {
+            .touxiang {
+                border-radius: 50%;
+                width: 88px;
+                height: 88px;
+                border: #f7f7f7 solid 1px;
+                overflow: hidden;
+                padding-left: 0;
+
+                img {
+                    width: 88px;
+                    height: auto;
+
+                }
+            }
+            .name {
+                font-size: 22px;
+                max-width: 100px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .tel {
+                font-size: 26px;
+                font-weight: bold;
+                color: $c2;
+            }
+
+        }
+        .ad {
+            white-space: nowrap;
+            max-width: 220px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 12px;
+        }
+        .truely {
+            float: left;
+            margin-right: 8px;
+            width: 35px;
+            height: 42px;
+            background-position: -392px -489px;
+        }
+    }
+}

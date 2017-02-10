@@ -1,0 +1,99 @@
+.headerTop {
+    height: 50px;
+    width: 100%;
+}
+.logo {
+    width: 191px;
+    height: 28px;
+    margin-top: 15px;
+}
+.menu-item1 {
+    padding: 0 15px;
+    a {
+        color: white;
+        font-weight: 700;
+        &:hover {
+            background: transparent !important;
+            text-decoration: underline;
+        }
+    }
+}
+.menu-item2 {
+    padding: 0 5px;
+    a {
+        color: white;
+        font-weight: 500;
+        padding-left: 10px;
+        padding-right: 10px;
+        &:hover {
+            background: transparent !important;
+            text-decoration: underline !important;
+        }
+    }
+}
+
+.menu-item3 {
+    padding: 0 5px;
+    a {
+        color: #999;
+        font-weight: 500;
+        padding-left: 10px;
+        padding-right: 10px;
+        &:hover {
+            background: transparent !important;
+            text-decoration: underline;
+        }
+    }
+}
+
+.menu-item-login, .menu-item-register {
+    padding: 0;
+    a {
+        font-size: 14px;
+        font-weight: normal;
+    }
+}
+.line {
+    float: left;
+    width: 1px;
+    height: 14px;
+    margin: 18px 0;
+    background: #aaa;
+}
+
+.transparent {
+    background-color: transparent;
+}
+
+.gray {
+    background-color: #333;
+}
+.icon-pos1 {
+    background-position: -198px -541px;
+}
+.icon-pos2 {
+    background-position: -10px -541px;
+}
+.w-191 {
+    width: 191px;
+}
+.w-185 {
+    width: 185px;
+}
+
+.on1 {
+    color: #fff !important;
+    cursor: default !important;
+    &:hover {
+        text-decoration: none !important;
+    }
+
+}
+.on2 {
+    color: $c1 !important;
+    cursor: default;
+    &:hover {
+        text-decoration: none !important;
+    }
+
+}

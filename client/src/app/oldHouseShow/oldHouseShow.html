@@ -1,0 +1,108 @@
+<div class="oldHouseShow-div">
+  <head-top></head-top>
+
+  <div class="oldHouseShow-content">
+    <div class="container">
+      <h1 class="title">{{oldHouseMsg.showKeyword}}</h1>
+    </div>
+    <div class="container-fluid house-info-wrapper">
+      <div class="container house-info">
+        <div class="row">
+          <carousel-box class="col-md-8 carousel"></carousel-box>
+          <div class="col-md-4 houseMsg">
+            <div class="row price">
+              <div class="col-md-5">
+                <span class="num">{{oldHouseMsg.houseAbout.allPrice}}</span>万
+              </div>
+
+              <div class="col-md-7 avgPrice">
+                  <div class="row">
+                      {{oldHouseMsg.houseAbout.avgPrice}}/平米
+                  </div>
+                  <div class="row pay font-gray">
+                    <span class="firstPay">首付{{oldHouseMsg.houseAbout.firstPay}}万</span>
+                    <span class="blank"></span>
+                    <span class="monthPay">月供{{oldHouseMsg.houseAbout.monthPay}}元</span>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row placeMsg">
+              <div class="row first">
+                <div class="col-md-3 font-gray">小区名称</div>
+                <div class="col-md-9">{{oldHouseMsg.houseAdress.place}}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 font-gray">看房时间</div>
+                <div class="col-md-9">{{oldHouseMsg.otherMsg.lookTime}}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 font-gray">周边学校</div>
+                <div class="col-md-9">{{oldHouseMsg.otherMsg.aroundSchool}}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-3 font-gray">所在地址</div>
+                <div class="col-md-9">[{{oldHouseMsg.houseAdress.area}}
+                  <span class="blank"></span>{{oldHouseMsg.houseAdress.road}}]<span class="blank"></span>{{oldHouseMsg.houseAdress.detail}}</div>
+              </div>
+
+            </div>
+
+            <div class="row buildingMsg">
+              <div class="row font-big first">
+                <div class="col-md-4 font-hei">{{oldHouseMsg.houseAbout.roomC}}</div>
+                <div class="col-md-4 font-hei">{{oldHouseMsg.houseAbout.size}}</div>
+                <div class="col-md-4 font-hei">{{oldHouseMsg.houseAbout.direction}}</div>
+              </div>
+
+              <div class="row font-small">
+                <div class="col-md-4 font-gray">{{oldHouseMsg.houseAbout.floor}}</div>
+                <div class="col-md-4 font-gray">{{oldHouseMsg.houseAbout.decoration}}</div>
+                <div class="col-md-4 font-gray">{{oldHouseMsg.houseAbout.born}}</div>
+              </div>
+            </div>
+
+            <div class="row owner">
+              <div class="col-md-3 touxiang">
+                <img src="assets/images/oldHouse/6e01b14f-88ab-4891-9748-3f90e1248855.JPG
+		" alt="" width="88" height="88">
+              </div>
+              <div class="col-md-8 col-md-offset-1">
+                <div class="row">
+                  <span class="name">{{oldHouseMsg.owner.xingming}}</span>
+                  <span class="blank"></span>
+                  <span class="ad font-gray">Q房网</span>
+                  <span class="blank"></span>
+                  <span class="ad font-gray">华侨城一分店</span>
+                </div>
+                <div class="row">
+                  <span class="ad font-gray">该房源动态由我更新，实时了解变化</span>
+                </div>
+                <div class="row tel">
+                  {{oldHouseMsg.owner.tel}}
+                </div>
+              </div>
+            </div>
+
+            <div class="row font-gray last">
+                <div class="col-md-12">
+                    <span class="icons truely"></span>
+                    <span class="ad">真实房源</span>
+                    <span class="blank"></span>
+                    <span class="ad">线上浏览</span>
+                    <span class="blank"></span>
+                    <span class="ad">线下体验</span>
+                    <span class="ad house-id">房源编号：{{oldHouseMsg.id}}</span>
+
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer-nav></footer-nav>
+</div>

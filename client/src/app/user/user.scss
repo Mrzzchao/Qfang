@@ -1,0 +1,92 @@
+$c1: #f91;
+$c2: #ff7e00;
+.user-div {
+    .login-wrapper {
+        height: 860px;
+        overflow: hidden;
+        background: url(../assets/images/user/bgi-login.jpg) center top no-repeat;
+
+        .welcome-msg {
+            padding-top: 87px;
+            padding-bottom: 60px;
+            text-align: center;
+
+            span {
+                padding-top: 12px;
+                display: block;
+                font-size: 30px;
+                color: #fff;
+                text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+            }
+        }
+
+        .login-box {
+            width: 500px;
+            min-height: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 4px 4px 16px rgba(0,0,0,0.1);
+
+            &-inner {
+                padding: 25px 50px 50px;
+            }
+
+            .login-tabs {
+                border-bottom: #eee solid 1px;
+                .on {
+                    color: $c1;
+                    border-bottom: $c1 solid 2px;
+                    text-decoration: none !important;
+                    cursor: default !important;
+                }
+                a {
+                    font-size: 16px;
+                    text-align: center;
+                    line-height: 48px;
+
+                    &:hover {
+                        color: $c1;
+                        text-decoration: underline;
+                        cursor: pointer;
+
+                    }
+                }
+            }
+
+            .row {
+                margin-top: 20px;
+                input {
+                    border: none;
+                    color: #333;
+                    border-bottom: #ddd solid 1px;
+                    outline: none;
+                    border-radius: 4px;
+                    box-shadow: none;
+
+                    padding: 10px;
+                }
+
+            }
+            .other-msg, .forget-pw a {
+                color: #999;
+                font-size: 12px;
+
+                a {
+                    &:hover {
+                        color: $c2;
+                    }
+                }
+            }
+            button {
+                display: block;
+                width: 100%;
+                font-size: 18px;
+                line-height: 30px;
+                text-align: center;
+                background: $c2;
+                color: #fff;
+            }
+        }
+    }
+
+}

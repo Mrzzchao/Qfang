@@ -1,0 +1,380 @@
+@mixin setPos($x: 0, $y: 0) {
+    background-position: $x $y;
+}
+
+.clearfix {
+    &::before, &::after {
+        content: "";
+        line-height: 1;
+        clear: both;
+        overflow: hidden;
+    }
+}
+.main-div {
+    header {
+        position: relative;
+        z-index: 99;
+        width: 100%;
+        height: 642px;
+        background: url(../assets/images/home/banner.jpg) left top no-repeat #fff;
+        overflow: hidden;
+    }
+    .message {
+        height: 95px;
+        margin-top: 155px;
+        background: url(../assets/images/home/slogan-big-zh.png) center no-repeat;
+    }
+
+    .searchBox {
+        margin-top: 50px;
+    }
+    .search-tab {
+        height: 28px;
+        line-height: 28px;
+        transition: color .3s,background-color .3s;
+        margin-bottom: 20px;
+        a {
+            font-size: 16px;
+            font-weight: bold;
+            color: #b0b0b0;
+            text-decoration: none;
+        }
+        &:hover {
+            a {
+                color: #fff;
+            }
+        }
+    }
+    .on {
+        cursor: alias;
+        a {
+            color: #fff;
+            cursor: default;
+        }
+    }
+
+    .search-body {
+        input {
+            height: 62px;
+            line-height: 18px;
+            padding: 22px 20px;
+            border-radius: 2px;
+        }
+        a {
+            display: block;
+            width: 100%;
+            height: 62px;
+            color: #fff;
+            background-color: #f91;
+            line-height: 62px;
+            text-align: center;
+            white-space: 4px;
+
+            border-radius: 2px;
+            font-size: 20px;
+            font-weight: bold;
+
+            &:hover {
+                background: #ff7e00;
+                text-decoration: none;
+            }
+        }
+        .no-r {
+            padding-right: 0;
+        }
+        .no-l {
+            padding-left: 0;
+        }
+    }
+
+//**=================HEAD==================*/
+
+    .entrances {
+        position: absolute;
+        top: 550px;
+        left: 0;
+        right: 0;
+        height: 232px;
+        padding-top: 30px;
+        margin-bottom: -100px;
+        background: url(../assets/images/home/bgi-shadow.png) center bottom no-repeat;
+        z-index: 9999;
+
+    }
+    .entrances-item {
+        a {
+            font-size: 20px;
+            line-height: 36px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #333;
+
+            &:hover {
+                color: #333;
+                text-decoration: none;
+                .icon-box {
+                    @include setPos(0, -100px);
+                }
+            }
+        }
+
+        a + p {
+            font-size: 16px;
+            margin: 5px 0 0;
+            color: #999;
+        }
+
+        .icon-box {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 15px;
+            position: relative;
+            overflow: hidden;
+            background: url(../assets/images/home/circles.png) 0 0 no-repeat;
+        }
+        .icon {
+            background-image: url(../assets/images/home/icons-entrances.png);
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+        }
+    }
+
+
+    .entrances-old {
+        .icon {
+            @include setPos(-28px, -28px);
+        }
+        a:hover .icon{
+            @include setPos(-164px, -28px);
+        }
+
+    }
+    .entrances-new {
+        .icon {
+            @include setPos(-28px, -164px);
+        }
+        a:hover .icon{
+            @include setPos(-164px, -164px);
+        }
+    }
+    .entrances-sale {
+        .icon {
+            @include setPos(-300px, -164px);
+        }
+        a:hover .icon{
+            @include setPos(-436px, -164px);
+        }
+    }
+/*====================ENTRANCENS=================*/
+
+
+    .oldHouse {
+        margin-top: 150px;
+        .row {
+            margin-bottom: 30px;
+        }
+
+        .pic-box {
+            position: relative;
+            overflow: hidden;
+
+            .wrapper {
+                display: block;
+                position: relative;
+            }
+            .title {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 275px;
+                height: 90px;
+                padding: 20px 30px;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: 60px;
+                color: #fff;
+                background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.9));
+
+                // opacity: 0.5;
+            }
+        }
+    }
+
+/*====================OLDHOUSE=================*/
+
+    .newHouse {
+        .pic-content {
+            display: flex;
+            justify-content: space-between;
+            align-content: space-between;
+
+        }
+
+        .left {
+            position: relative;
+            img {
+                width: 580px;
+                height: 415px;
+            }
+            .mes {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                width: 240px;
+                height: 130px;
+                background-color: rgba(0,0,0,0.8);
+
+                span {
+                    display: block;
+                    text-align: center;
+                    font-size: 24px;
+                    padding: 16px 25px 10px;
+                    color: #fff;
+                    font-weight: 700;
+                }
+                b {
+                    text-align: center;
+                    display: block;
+                    margin: 2px 25px 0;
+                    padding-top: 12px;
+                    font-size: 24px;
+                    font-weight: 700;
+                    border-top: #555 solid 1px;
+                    color: #f91;
+                }
+            }
+        }
+        .mid, .right {
+            display: flex;
+            align-content: space-between;
+            justify-content: space-between;
+            flex-direction: column;
+
+            .pic-box {
+                position: relative;
+                overflow: hidden;
+            }
+            img {
+                // width: 275px;
+                // height: 192px;
+            }
+
+            .over {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                z-index: 1;
+                display: block;
+                width: 100%;
+                height: 90px;
+                background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.6));
+            }
+
+            .toTop {
+                position: absolute;
+                z-index: 3;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                top: 150px;
+                width: 100%;
+                height: 100%;
+                padding: 0 20px;
+                font-size: 14px;
+                color: #fff;
+                    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.8));
+
+                .title {
+                    line-height: 56px;
+                    cursor: pointer;
+                    b {
+                        color: #fff;
+                        font-size: 16px;
+                        font-weight: bold;
+                        max-width: 55%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+
+                    span {
+                        float: right;
+                    }
+
+                    &:hover {
+                        .toTop {
+                            width: 900px;
+                        }
+                    }
+                }
+                .content {
+                    span {
+                        display: block;
+                        width: 100%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+    }
+
+/*====================NEWHOUSE=================*/
+
+    .footer-feature-wrapper {
+        background-color: #f5f5f5;
+
+    }
+    .footer-feature {
+        font-size: 0;
+        margin-top: 50px;
+        margin-bottom: 50px;
+
+        &-item {
+            text-align: center;
+        }
+        .icon {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+        }
+        .title {
+            line-height: 48px;
+            color: #333;
+            margin-left: 20px;
+            vertical-align: bottom;
+            font-size: 30px;
+            font-weight: 700;
+            font-family: Arial, Tahoma, "Microsoft YaHei", "\5fae\8f6f\96c5\9ed1", 'SimHei', '\9ed1\4f53', sans-serif;
+        }
+
+        .description {
+            line-height: 24px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .truely {
+            @include setPos(-286px, -200px);
+        }
+        .timely {
+            @include setPos(-344px, -200px);
+        }
+        .profession {
+            @include setPos(-286px, -258px);
+        }
+        .freedom {
+            @include setPos(-344px, -258px);
+        }
+    }
+/*====================footer-feature=================*/
+}

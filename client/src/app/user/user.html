@@ -1,0 +1,65 @@
+<div class="user-div">
+    <head-top></head-top>
+
+    <div class="login-wrapper">
+        <div class="welcome-msg">
+            <img src="assets/images/user/bgi-welcomes.png" alt="">
+            <span>在这里，找到幸福，找到家。</span>
+        </div>
+
+        <div class="login-box">
+            <div class="login-box-inner">
+                <div class="row login-tabs">
+                    <a class="col-md-6" ng-class="{on: isSelected}" ng-click="UserCtrl.toLogin()">登录</a>
+                    <a class="col-md-6" ng-class="{on: !isSelected}" ng-click="UserCtrl.toRegister()">账号注册</a>
+                </div>
+
+                <div class="login-form user-form " ng-show="userFlag">
+                    <div class="row telNum">
+                        <input type="text" class="form-control" placeholder="请输入手机号码">
+                    </div>
+                    <div class="row password">
+                        <input type="text" class="form-control" placeholder="请输入密码">
+                    </div>
+                    <div class="row">
+                        <div class="other-msg pull-left">
+                            <input type="checkbox" name="" value="">
+                            <span>记住密码</span>
+                        </div>
+                        <div class="forget-pw pull-right">
+                            <a href="#">忘记密码？</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="button" name="button" class="btn">立即登录</button>
+
+                    </div>
+                </div>
+
+                <div class="register-form user-form" ng-show="!userFlag">
+                    <div class="row telNum">
+                        <input type="text" class="form-control" placeholder="请输入手机号码">
+                    </div>
+                    <div class="row password">
+                        <input type="text" class="form-control" placeholder="请设置登录密码">
+                    </div>
+                    <div class="row">
+                        <div class="other-msg pull-left">
+                            <input type="checkbox" name="" value="">
+                            <span>我同意</span>
+                            <a href="#">《Q房服务协议》</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="button" name="button" class="btn">立即注册</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer-nav>
+
+</div>

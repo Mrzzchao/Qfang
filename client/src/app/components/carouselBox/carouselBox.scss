@@ -1,0 +1,102 @@
+body,
+div,
+li,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  border: 0;
+}
+
+.carouselBox {
+
+  .large_box {
+    margin-bottom: 20px;
+    width: 690px;
+    height: 517px;
+    overflow: hidden;
+  }
+
+  .large_box img {
+    display: block;
+  }
+
+  .small_box {
+    width: 690px;
+    height: 98px;
+    overflow: hidden;
+  }
+
+  .small_list {
+    position: relative;
+    float: left;
+    width: 600px;
+    height: 98px;
+    overflow: hidden;
+  }
+
+  .small_list ul {
+    height: 98px;
+    overflow: hidden;
+  }
+
+  .small_list ul li {
+    position: relative;
+    float: left;
+    margin-right: 20px;
+    width: 130px;
+  }
+
+  .small_list ul li img {
+    display: block;
+  }
+
+  .small_list ul li .bun_bg {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130px;
+    height: 98px;
+    background: #000;
+    filter:alpha(opacity=60);
+    -moz-opacity: 0.6;
+    -khtml-opacity: 0.6;
+    opacity: 0.6;
+  }
+
+  .small_list ul li.on .bun_bg {
+    display: block;
+  }
+
+  .btns {
+    display: block;
+    width: 35px;
+    height: 98px;
+    background-color: #777;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+  }
+
+  .btns:hover {
+    background-color: $c1;
+  }
+
+  .left_btn {
+    float: left;
+    margin-right: 20px;
+    background-image: url("../assets/images/carouselBox/left_btn.png");
+  }
+
+  .right_btn {
+    float: left;
+    background-image: url("../assets/images/carouselBox/right_btn.png");
+  }
+}

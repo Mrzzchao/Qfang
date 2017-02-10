@@ -1,0 +1,54 @@
+<nav class="headerTop" ng-class="style.bgColor" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="logo-box">
+        <a class="logo icons" ng-class="[style.iconPos, style.iconW]" href="#"></a>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse in navbar-right" id="navbar">
+      <ul class="nav navbar-nav navbar-right menu">
+
+        <li role="presentation" class="dropdown" ng-class="style.menuItem">
+          <a class="dropdown-toggle" data-toggle="dropdown" ui-sref="home" role="button" aria-haspopup="true" aria-expanded="false">
+            首页
+          </a>
+        </li>
+        <li role="presentation" class="dropdown" ng-class="style.menuItem">
+          <a class="dropdown-toggle" ng-class="{on1: isOld}" ui-sref="oldHouse" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            二手房
+          </a>
+        </li>
+        <li role="presentation" class="dropdown" ng-class="style.menuItem">
+          <a class="dropdown-toggle" ng-class="{on2: isNew}" ui-sref="oldHouse" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="false">
+            新房
+          </a>
+        </li>
+        <li role="presentation" class="dropdown" ng-class="style.menuItem">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="false">
+            业务委托
+          </a>
+        </li>
+        <li role="presentation" class="dropdown menu-item1 menu-item-login" ng-show="style.isExist">
+          <a class="dropdown-toggle" data-toggle="dropdown" ng-click="toLogin()" role="button" aria-haspopup="true" aria-expanded="false">
+            登录
+          </a>
+        </li>
+        <span class="line" ng-show="style.isExist"></span>
+        <li role="presentation" class="dropdown menu-item1 menu-item-register" ng-show="style.isExist">
+          <a class="dropdown-toggle" data-toggle="dropdown" ng-click="toRegister()"  role="button" aria-haspopup="true" aria-expanded="false">
+            注册
+          </a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>

@@ -1,0 +1,37 @@
+.head {
+    position: relative;
+    overflow: hidden;
+    a {
+        text-decoration: none;
+    }
+}
+.title {
+    h2 {
+        padding: 0 15px 0 0;
+        font-size: 30px;
+        font-weight: 700;
+        font-family: Arial,Tahoma,"Microsoft YaHei","\5fae\8f6f\96c5\9ed1",'SimHei','\9ed1\4f53',sans-serif;
+        color: #2e2e2e;
+    }
+    &:hover h2 {
+        color: #f91;
+    }
+}
+.caption {
+    font-size: 16px;
+    color: #999;
+}
+
+.more {
+    color: #2e2e2e;
+}
+
+.toBottom {
+    position: relative;;
+    top: 31px;
+}
+
+.blank {
+    // width: 10px;
+    margin-left: .5em;
+}
