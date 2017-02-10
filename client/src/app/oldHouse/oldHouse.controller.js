@@ -34,7 +34,7 @@
 					detail: "广州市番禺区西丽南路228号"
 				},
 				xingming: "罗卫彬",
-				speciel: ["红本在手"]
+				special: ["红本在手"]
 			}, {
 				showKeyword: "配套齐全，西丽广场，西丽小学，西丽公园，番禺华侨城二手房三室",
 				houseAbout: {
@@ -53,7 +53,7 @@
 					detail: "广州市番禺区西丽南路228号"
 				},
 				xingming: "罗卫彬",
-				speciel: ["红本在手"]
+				special: ["红本在手"]
 			}, {
 				showKeyword: "配套齐全，西丽广场，西丽小学，西丽公园，番禺华侨城二手房三室",
 				houseAbout: {
@@ -72,8 +72,8 @@
 					detail: "广州市番禺区西丽南路228号"
 				},
 				xingming: "罗卫彬",
-				speciel: ["红本在手"]
-			},
+				special: ["红本在手"]
+			}
 		];
 	}
 })();

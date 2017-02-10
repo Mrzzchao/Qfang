@@ -3,7 +3,7 @@
 
   <div class="oldHouseShow-content">
     <div class="container">
-      <h1 class="title">{{oldHouseMsg.showKeyword}}</h1>
+      <h1 class="title1">{{oldHouseMsg.showKeyword}}</h1>
     </div>
     <div class="container-fluid house-info-wrapper">
       <div class="container house-info">
@@ -102,6 +102,53 @@
       </div>
     </div>
 
+    <div class="container houseOrigin">
+        <div class="houseMsg-item">
+            <h1 class="row title">房源点评</h1>
+            <div class="row">
+              <div class="col-md-2 font-gray">
+                房源标签
+              </div>
+              <div class="col-md-10 ">
+                  <span class="special" ng-repeat="s_tag in oldHouseMsg.special">{{s_tag}}</span>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 font-gray">
+                  推荐理由
+                </div>
+
+                <div class="col-md-10">
+                    {{oldHouseMsg.reason}}
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2 font-gray">
+                交通出行
+              </div>
+              <div class="col-md-10">
+                {{oldHouseMsg.traffic}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-2 font-gray">
+                周边配套
+              </div>
+              <div class="col-md-10">
+                {{oldHouseMsg.surroundings}}
+              </div>
+            </div>
+        </div>
+        <div class="houseMsg-item">
+            <h1 class="row title">房源图片</h1>
+
+            <div class="pic-content">
+                <img ng-src="assets/images/oldHouse/{{imgUrl}}.jpg" alt="" ng-repeat="imgUrl in oldHouseMsg.imgUrls" height="350">
+            </div>
+
+            <div class="show_more"><a ng-click="showMore()">显示更多图片</a></div>
+        </div>
+    </div>
   </div>
 
   <footer-nav></footer-nav>
