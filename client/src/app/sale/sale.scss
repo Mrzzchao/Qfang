@@ -1,0 +1,115 @@
+.sale-div {
+    .sale-content {
+        height: 1160px;
+        background: url(../assets/images/sale/bg-entrustform.jpg) center bottom no-repeat #f8f8f8;
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            font-weight: 700;
+            padding: 50px 0 35px;
+        }
+
+        .saleForm {
+            width: 1000px;
+            height: 980px;
+            margin: 0 auto;
+            filter: none;
+            background-color: rgba(255,255,255,0.85);
+            border-radius: 10px;
+
+            text-align: center;
+
+            .tabs {
+                border-bottom: #ebebeb solid 2px;
+                padding: 20px 170px 0;
+                height: 64px;
+                font-size: 16px;
+                .step {
+                    position: relative;
+                    height: 100%;
+                    color: #999;
+                }
+                .num {
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    line-height: 16px;
+                    border: 2px solid #999;
+                    border-radius: 100%;
+                    margin-right: 10px;
+                }
+                .on {
+                    border-bottom: 2px solid $c2;
+                    color: $c2;
+                    .num {
+                        border: 2px solid $c2;
+                    }
+                    .triangle {
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        margin-left: -3px;
+                        width: 0;
+                        height: 0;
+                        border-bottom: 6px solid $c2;
+                        border-left: 6px solid transparent;
+                        border-right: 6px solid transparent;
+                    }
+                }
+            }
+
+            .form-content {
+                width: 60%;
+                margin: 0 auto;
+                text-align: left;
+
+                .title {
+                    border-bottom: #ebebeb solid 1px;
+                    font-size: 18px;
+                    padding: 35px 20px 10px;
+                }
+
+                .form-item {
+                    margin-top: 30px;
+
+                    &>span {
+                        display: inline-block;
+                        width: 100px;
+                    }
+                    .space {
+                        display: inline-block;
+                        width: 2em;
+                    }
+                    input {
+                        padding: 8px 10px;
+                        _padding: 7px 10px;
+                        width: 278px;
+                        height: 38px;
+                        line-height: 18px;
+                        color: #2e2e2e;
+                        font-size: 14px;
+                        border: 0;
+
+                        border: #ddd solid 1px;
+                        outline: none;
+                    }
+
+                    button {
+                        padding: 0 40px;
+                        height: 40px;
+                        line-height: 40px;
+                        margin-left: 100px;
+                        background: #ff7e00;
+                        color: #fff;
+                        font-size: 20px;
+                        border-radius: 3px;
+                        text-decoration: none;
+                        font-family: "\5fae\8f6f\96c5\9ed1";
+                        display: inline-block;
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -33,6 +33,40 @@
         controller: 'OldHouseShowController',
         controllerAs: 'OldHouseShowCtrl'
       })
+      .state('sale', {
+        url: '/sale',
+        templateUrl: 'app/sale/sale.html',
+        controller: 'SaleController',
+        controllerAs: 'SaleCtrl'
+      })
+      .state('sale.step1', {
+        url: '/sale.step1',
+        templateUrl: 'app/sale/sale.step1.html',
+        controller: 'SaleController',
+        params: {'stepId': {}},
+        controllerAs: 'SaleCtrl'
+      })
+      .state('sale.step2', {
+        url: '/sale.step2',
+        templateUrl: 'app/sale/sale.step2.html',
+        params: {'stepId': {}},
+        controller: 'SaleController',
+        controllerAs: 'SaleCtrl'
+      })
+      .state('sale.step3', {
+        url: '/sale.step3',
+        templateUrl: 'app/sale/sale.step3.html',
+        params: {'stepId': {}},
+        controller: 'SaleController',
+        controllerAs: 'SaleCtrl'
+      })
+      .state('sale.step4', {
+        url: '/sale.step4',
+        templateUrl: 'app/sale/sale.step4.html',
+        params: {'stepId': {}},
+        controller: 'SaleController',
+        controllerAs: 'SaleCtrl'
+      })
 
     $urlRouterProvider.otherwise('/');
   }

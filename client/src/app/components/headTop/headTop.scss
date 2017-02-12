@@ -89,11 +89,10 @@
     }
 
 }
-.on2 {
+.on2, .on3 {
     color: $c1 !important;
     cursor: default;
     &:hover {
         text-decoration: none !important;
     }
-
 }
