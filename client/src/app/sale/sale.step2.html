@@ -6,6 +6,51 @@
 </div>
 
 <div class="form-content">
-    2
+    <div class="title">
+        {{step2.title}}
+    </div>
+
+    <div class="form-item">
+        <span>面<span class="space"></span>积</span>
+        <div class="text-box">
+            <input type="text">
+            <div class="unit">平方</div>
+        </div>
+    </div>
+    <div class="form-item">
+        <span>房<span class="space"></span>型</span>
+        <dropdown-box dropdown="dropdown1" class="dropdown1"></dropdown-box>
+        <dropdown-box dropdown="dropdown2" ></dropdown-box>
+        <dropdown-box dropdown="dropdown3" ></dropdown-box>
+    </div>
+    <div class="form-item">
+        <span>价<span class="space"></span>格</span>
+        <div class="text-box">
+            <input type="text">
+            <div class="unit">万元</div>
+        </div>
+    </div>
+
+    <div class="title">
+        委托人信息
+    </div>
+    <div class="form-item">
+        <span>您的姓名</span>
+        <div class="text-box">
+            <input type="text">
+        </div>
+        <div class="radio-box">
+            <label for="sex1"><input type="radio" name="sex" id="sex1">先生</label>
+            <label for="sex2"><input type="radio" name="sex" id="sex2">女士</label>
+        </div>
+    </div>
+
+    <div class="form-item">
+        <span>手机号码</span>
+        <div class="text-box">
+            <input type="text">
+        </div>
+    </div>
+
     <div class="form-item"><button type="button" name="button" class="next-step" ng-click="nextStep(stepId+1)">下一步</button></div>
 </div>

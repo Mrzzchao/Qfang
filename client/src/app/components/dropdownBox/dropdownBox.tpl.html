@@ -1,0 +1,12 @@
+<div class="dropdown-box clearfix" ng-click="listShow()">
+    <div class="text">
+        <span class="num">{{selectItem}}</span>
+        <span class="word">{{dropdown.word}}</span>
+    </div>
+    <div class="icons-entrust caret caret{{dropdown.id}}"></div>
+
+    <input type="text" id="dropdown{{dropdown.id}}" value="" ng-model="selectItem">
+    <ul class="dropdown-list" ng-show="listFlag">
+        <li ng-repeat="item in dropdown.lists" ng-click="listSelected(item)">{{item}}</li>
+    </ul>
+</div>
