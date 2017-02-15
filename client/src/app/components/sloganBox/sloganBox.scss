@@ -1,0 +1,35 @@
+.slogan-box {
+    width: 100%;
+    background: #f9f9f9;
+    padding: 20px 0;
+    font-family: "\5fae\8f6f\96c5\9ed1",Verdana,Arial,"\5b8b\4f53";
+    .slogan-box-inner {
+        width: 1000px;
+        margin: 0 auto;
+    }
+    i {
+        width: 56px;
+        height: 52px;
+        position: absolute;
+        left: 50px;
+        top: 0;
+    }
+    .professional i {
+        background-position: -10px -70px;
+    }
+    .safest i {
+        background-position: -178px -10px;
+    }
+
+    .comfortable i {
+        background-position: -178px -70px;
+    }
+    p {
+        font-size: 18px;
+        margin: 0 0 2px 115px;
+    }
+    span {
+        margin: 0 0 0 115px;
+        font-size: 12px;
+    }
+}

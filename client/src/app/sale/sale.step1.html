@@ -1,8 +1,8 @@
 <div class="row tabs">
-    <div class="col-md-3 step" ng-class="{on: stepId==1}"><span class="num">1</span>填写基本信息<span class="triangle"></span></div>
-    <div class="col-md-3 step" ng-class="{on: stepId==2}"><span class="num">2</span>完善房源资料<span class="triangle"></span></div>
-    <div class="col-md-3 step" ng-class="{on: stepId==3}"><span class="num">3</span>上传房源图片<span class="triangle"></span></div>
-    <div class="col-md-3 step" ng-class="{on: stepId==4}"><span class="num">4</span>提交完成<span class="triangle"></span></div>
+    <div class="col-md-3 step" ng-class="{on: step.id==1}"><span class="num">1</span>填写基本信息<span class="triangle"></span></div>
+    <div class="col-md-3 step" ng-class="{on: step.id==2}"><span class="num">2</span>完善房源资料<span class="triangle"></span></div>
+    <div class="col-md-3 step" ng-class="{on: step.id==3}"><span class="num">3</span>上传房源图片<span class="triangle"></span></div>
+    <div class="col-md-3 step" ng-class="{on: step.id==4}"><span class="num">4</span>提交完成<span class="triangle"></span></div>
 </div>
 
 <div class="form-content">
@@ -11,5 +11,5 @@
     <div class="form-item"><span>小区名称</span><input type="text"></div>
     <div class="form-item"><span>栋<span class="space"></span>座</span><input type="text"></div>
     <div class="form-item"><span>房<span class="space"></span>号</span><input type="text"></div>
-    <div class="form-item"><button type="button" name="button" class="next-step" ng-click="nextStep(stepId+1)">下一步</button></div>
+    <div class="form-item"><button type="button" name="button" class="next-step" ng-click="nextStep(step.id+1)">下一步</button></div>
 </div>

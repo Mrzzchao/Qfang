@@ -3,7 +3,7 @@
  *  The list of variables are listed here bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
  */
 $navbar-inverse-link-color: #5AADBB;
-$icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
+$icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
@@ -14,7 +14,29 @@ $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
 
 $c1: #f91;
 $c2: #ff7e00;
-
+::-webkit-scrollbar {
+    width: 12px;
+    height: 16px;
+    overflow: visible;
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,.25);
+    background-clip: padding-box;
+    border: solid transparent;
+    min-height: 28px;
+    padding: 100px 0 0;
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset -1px -1px 0 rgba(0,0,0,.07);
+    border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+    background-clip: padding-box;
+    border: solid transparent;
+    border-width: 0 0 0 7px;
+    border-radius: 8px;
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -53,7 +75,15 @@ li {
     background-image: url(../assets/images/common/icons.png);
     background-repeat: no-repeat;
 }
-
+.icons-entrust {
+    width: 0;
+    height: 0;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    background: url(../assets/images/common/icons-entrust.gif) no-repeat;
+}
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
