@@ -34,16 +34,7 @@
             业务委托
           </a>
         </li>
-        <li role="presentation" class="dropdown menu-item1 menu-item-login" ng-show="style.isExist">
-          <a class="dropdown-toggle" data-toggle="dropdown" ng-click="toLogin()" role="button" aria-haspopup="true" aria-expanded="false">
-            登录
-          </a>
-        </li>
-        <span class="line" ng-show="style.isExist"></span>
-        <li role="presentation" class="dropdown menu-item1 menu-item-register" ng-show="style.isExist">
-          <a class="dropdown-toggle" data-toggle="dropdown" ng-click="toRegister()"  role="button" aria-haspopup="true" aria-expanded="false">
-            注册
-          </a>
+        <li class="userBox dropdown" change-html='{{userMsg}}'>
         </li>
 
       </ul>

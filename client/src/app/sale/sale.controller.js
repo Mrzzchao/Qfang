@@ -25,9 +25,7 @@
 		if($scope.step.id == 3) {
 			$scope.step.btnName = "提交房源"
 		}
-		console.log($scope.step.id + "----");
 		$scope.nextStep = function(stepId) {
-			console.log("test");
 			// $scope.stepId = stepId;
 			$state.go("sale.step" + stepId);
 		}
@@ -82,12 +80,9 @@
         }).on('filepreupload', function(event, data, previewId, index) {     //上传中
             var form = data.form, files = data.files, extra = data.extra,
             response = data.response, reader = data.reader;
-            console.log('文件正在上传');
         }).on("fileuploaded", function (event, data, previewId, index) {    //一个文件上传成功
-            console.log('文件上传成功！'+data.id);
 
         }).on('fileerror', function(event, data, msg) {  //一个文件上传失败
-            console.log('文件上传失败！'+data.id);
 
 
         })

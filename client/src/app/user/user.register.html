@@ -1,0 +1,31 @@
+<div class="row login-tabs">
+    <a class="col-md-6" ng-class="{on: isSelected}" ui-sref="user.login">登录</a>
+    <a class="col-md-6" ng-class="{on: !isSelected}" ui-sref="user.register">账号注册</a>
+</div>
+<ng-form class="register-form user-form" name="regForm" id="regForm">
+    <div class="row telNum">
+        <input type="text" name="username" hidden="true">
+        <input type="text" class="form-control" placeholder="请输入手机号码" value="" name="username" class="user" autocomplete="off" ng-model="register.username" ng-pattern="pattern.reg.phone"  required>
+    </div>
+    <div class="row alert alert-danger" ng-show="regForm.username.$error.pattern">
+      {{pattern.msg.phone}}
+    </div>
+    <div class="row password">
+        <input type="text" name="password" hidden="true">
+        <input type="password" class="form-control" placeholder="请设置登录密码" value="" name="password" class="user" autocomplete="off" ng-model="register.password" ng-pattern="pattern.reg.password" required>
+    </div>
+    <div class="row alert alert-danger" ng-show="regForm.password.$error.pattern">
+      {{pattern.msg.password}}
+    </div>
+    <div class="row">
+        <div class="other-msg pull-left">
+            <input type="checkbox" name="" value="" id="clause" ng-model='clause'>
+            <label for="clause"><span>我同意</span></label>
+            <a href="#">《Q房服务协议》</a>
+        </div>
+    </div>
+    <div class="row">
+        <button type="button" name="button" class="btn" ng-disabled='!clause || regForm.$invalid' ng-click="signup()">立即注册</button>
+    </div>
+</ng-form>
+<tip-box></tip-box>

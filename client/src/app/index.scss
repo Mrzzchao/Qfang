@@ -37,6 +37,7 @@ $c2: #ff7e00;
     border-width: 0 0 0 7px;
     border-radius: 8px;
 }
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset !important; }
 html, body {
     margin: 0;
     padding: 0;
@@ -49,8 +50,12 @@ html, body {
     font-weight: normal;
     font-stretch: normal;
     line-height: 1.5;
+    width: 100%;
+    overflow-x: hidden;
 }
-
+label {
+    font-weight: normal;
+}
 a {
     &:link, &:hover, &:focus {
         background-color: transparent !important;

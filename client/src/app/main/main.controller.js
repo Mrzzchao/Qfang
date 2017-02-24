@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope) {
+  function MainController($scope, user) {
       var self = this;
       $scope.oldHouseMes = {
           title: ["二手好房", "为你而选"],
@@ -21,7 +21,9 @@
 
       $scope.style = {
           bgColor: "transparent",
-          isExist: true,
+          isExist: function() {
+
+          },
           iconPos: "icon-pos1",
           iconW: "w-191",
           menuItem: "menu-item1"

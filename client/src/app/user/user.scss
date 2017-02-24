@@ -85,8 +85,23 @@ $c2: #ff7e00;
                 text-align: center;
                 background: $c2;
                 color: #fff;
+
+                &:hover {
+                    background: darken($c2, 2%);
+                }
             }
         }
     }
 
+    button[disabled], html input[disabled]  {
+      cursor: default;
+      background: #ccc !important;
+      &:hover {background: #ccc;}
+    }
+
+    .alert {
+        padding: 5px;
+        margin-top: 0 !important;
+        font-size: 12px;
+    }
 }

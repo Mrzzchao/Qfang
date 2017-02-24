@@ -21,6 +21,16 @@
         params: {'resFlag': {}},
         controllerAs: 'UserCtrl'
       })
+      .state('user.login', {
+        url: '/user.login',
+        templateUrl: 'app/user/user.login.html',
+        controller: 'UserLoginController'
+      })
+      .state('user.register', {
+        url: '/user.register',
+        templateUrl: 'app/user/user.register.html',
+        controller: 'UserRegController'
+      })
       .state('oldHouse', {
         url: '/oldHouse',
         templateUrl: 'app/oldHouse/oldHouse.html',
