@@ -52,10 +52,6 @@
 			}, 1000);
 		}
 
-		$http.get(baseUrl + '/register').error(function(result) {
-			isMe = true;
-		});
-
 	}
 
 })();
