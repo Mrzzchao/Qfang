@@ -6,30 +6,48 @@
 		.controller('UserLoginController', UserLoginController);
 
 	/** @ngInject */
-	function UserLoginController($scope, $location, $http, $interval, $state, $timeout, pattern, user) {
+	function UserLoginController($scope, $location, $http, $interval, $state, $timeout, pattern, user, extend) {
 		var self = this;
 		var key = $location.absUrl().split(".")[1];
 		$scope.isSelected = true;
 		$scope.login = user.getData();
 		$scope.remFlag = !!$scope.login.remFlag;
 		$scope.pattern = pattern; // 验证
-        $scope.toUrl = "home";
-        $scope.msg = "";
+		$scope.toUrl = "home";
+		$scope.msg = "";
 		var baseUrl = '/user';
 		var isMe = false; // 判断服务器是否存在
 		var count = 3; // 倒计时
-		$http.get(baseUrl + '/login').error(function(result) {
-			isMe = true;
-		});
 
 		$scope.signin = function() {
-			$(function() {
-				successLogin();
-			});
+			(function() {
+				var tmp = {};
+				var dataStr = '';
+				extend(tmp, $scope.login);
+				dataStr = $.param(tmp);
+				$http.post(baseUrl + '/login', dataStr, {
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					}
+				}).success(function(data) {
+					if (data.err) {
+						$scope.msg = data.err;
+						console.log(data);
+						$('#mymodal').modal('show');
+
+					} else {
+						successLogin();
+					}
+
+				}).error(function(data) {
+					$scope.msg = '未知错误, 请重试';
+					$('#mymodal').modal('show');
+				});
+			})();
 		}
 
 		function successLogin() {
-			console.log($scope.login.remFlag);
+			console.log($scope.remFlag);
 			$scope.toUrl = "home";
 			user.setUser($scope.login.username, $scope.login.password, $scope.remFlag);
 			user.setStatu(1);

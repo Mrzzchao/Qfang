@@ -62,7 +62,7 @@
 		}
 
 		function successRegister() {
-			user.setUser($scope.register.username, $scope.register.password, $scope.register.remFlag);
+			user.autoSetUser($scope.register.username, $scope.register.password);
 			$scope.msg = '注册成功, ' + 　count + '秒后自动跳转登录页面';
 			$scope.toShow = true;
 										console.log("44");

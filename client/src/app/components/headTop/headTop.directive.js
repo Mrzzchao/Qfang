@@ -61,7 +61,7 @@
 				$scope.quit();
 			}
 			else {
-				$scope.userMsg = '<span class="welcome" > 欢迎您，尊贵的 <a ui-sref="user">' + 18825085447 + '</a></span> <a ng-click="quit()"">退出</a>';
+				$scope.userMsg = '<span class="welcome" > 欢迎您，尊贵的 <a ui-sref="user">' + data.username + '</a></span> <a ng-click="quit()"">退出</a>';
 			}
 		}
 	}

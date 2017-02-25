@@ -46,14 +46,27 @@ UserSchema.statics = {
                 console.log(err);
                 return;
             }
-            self.isFlag = docs.some(function(ele) {
+            self.isExistFlag = docs.some(function(ele) {
                 console.log(ele.username == username);
                 return ele.username == username;
             });
             console.log("2----");
-            console.log(self.isFlag);
+            console.log(self.isExistFlag);
         }).exec(cb);
     },
-    isFlag: false
+    isMatch: function(user, cb) {
+        var self = this;
+        var username = user.username;
+        var password = user.password;
+        this.findOne({username: username}, function(err, result) {
+            if(err) console.log(err);
+            if(result.password == password)
+                self.isMatchFlag = true;
+            else
+                self.isMatchFlag = false;
+        }).exec(cb);
+    },
+    isMatchFlag: false,
+    isExistFlag: false
 }
 module.exports = mongoose.model("UserModel", UserSchema);

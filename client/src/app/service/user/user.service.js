@@ -45,6 +45,10 @@
           },
           getStatus: function() {
               return data.status;
+          },
+          autoSetUser: function(username, password) {
+              data.username = username;
+              data.password = password;
           }
       }
   }
