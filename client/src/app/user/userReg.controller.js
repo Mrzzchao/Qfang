@@ -47,9 +47,6 @@
 							}
 							//   console.log(data);
 							console.log("11");
-
-						} else {
-							console.log("22");
 							successRegister();
 						}
 
@@ -76,6 +73,7 @@
 				if (count === -1) {
 					$timeout(function() {
 						$state.go("user.login");
+
 					}, 1000);
 					$('#mymodal').modal('hide');
 				}

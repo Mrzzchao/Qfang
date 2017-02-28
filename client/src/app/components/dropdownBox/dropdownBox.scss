@@ -8,13 +8,17 @@ $c3: #ddd;
 //     overflow: hidden;
 //     background: url(../../../images/frontend/entrust/icons-entrust.gif) no-repeat;
 // }
+.dropdown-wrapper {
+    position: relative;
+        display: inline-block;
+}
 .dropdown-box {
     display: inline-block;
     width: 100px;
     height: 34px;
-    border: #ddd solid 1px;
+    border: $c3 solid 1px;
     position: relative;
-    z-index: 6;
+    z-index: 1;
     font-size: 14px;
     cursor: pointer;
     .text {
@@ -24,6 +28,7 @@ $c3: #ddd;
         padding: 5px;
         border-right: 1px solid $c3;
         font-size: 0;
+        background: #fff;
         .num {
             color: #2e2e2e;
             padding-left: 5px;
@@ -57,27 +62,37 @@ $c3: #ddd;
     }
 
     input {
-        display: none;
-        width: 0;
-        height: 0;
-        visibility: hidden;
+        // display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px !important;
+        // width: 0;
+        // height: 0;
+        // visibility: hidden;
+        opacity: 0;
+        cursor: pointer;
+
     }
 }
 .dropdown-list {
     position: absolute;
-    top: 33px;
-    left: -1px;
+    top: 30px;
+    left: 0;
+    height: 200px;
+    overflow: auto;
     font-size: 14px;
     width: 100px;
     border: 1px solid $c3;
     border-top: none;
     color: #2e2e2e;
+    z-index: 5;
     li {
         list-style: none;
         display: block;
         width: 100%;
         line-height: 24px;
-        padding: 0 0 0 10px;
+        padding: 10px;
         border-bottom: #eee dotted 1px;
         cursor: pointer;
         background: #fff;

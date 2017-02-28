@@ -8,7 +8,9 @@
 
 	/** @ngInject */
 	function SaleController($scope, $state, $location) {
+		initAddressSelector($scope);
 		initFileInput("input-id");
+		initBootSelector($scope);
 		var self = this;
 		var strArr = $location.absUrl().split("");
 		$scope.step = {
@@ -48,8 +50,52 @@
 			word: "卫",
 			lists: [0, 1, 2, 3, 4, 5, 6, 7, 8]
 		};
+		$scope.dropdown4 = {
+			id: 4,
+			word: "栋",
+			lists: ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4", "E", "F", "G", "H"]
+		};
+		$scope.dropdown5 = {
+			id: 5,
+			word: "",
+			lists: ["朝北", "朝南", "朝东", "朝西", "朝东北", "朝东南", "朝西北", "朝西南"]
+		};
+		$scope.dropdown6 = {
+			id: 6,
+			word: "",
+			lists: ["普通装修", "精装修", "豪华装修"]
+		};
+		$scope.dropdown7 = {
+			id: 7,
+			word: "",
+			lists: ["低层", "中层", "高层"]
+		};
 	}
-
+	function initAddressSelector($scope) {
+		// $('.selectpicker').selectpicker({
+		// 	'selectedText': 'cat'
+		// });
+		$scope.p = '广东';
+		$scope.c = '广州';
+		$scope.a = '天河区';
+		$scope.d = '五山路';
+	}
+	function initBootSelector($scope) {
+		console.log($scope);
+		$scope.specialLists = [
+			"地铁房",
+			"红本在手",
+			"住家三房",
+			"刚需小户",
+			"不限购",
+			"优选大房",
+			"急售",
+			"南北通透",
+			"随时看房",
+			"满两年",
+			"复式"
+		];
+	}
 	function initFileInput(ctrlName) {
         var control = $('#' + ctrlName);
         control.fileinput({
@@ -83,7 +129,6 @@
         }).on("fileuploaded", function (event, data, previewId, index) {    //一个文件上传成功
 
         }).on('fileerror', function(event, data, msg) {  //一个文件上传失败
-
 
         })
     }

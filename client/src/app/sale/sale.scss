@@ -1,4 +1,7 @@
 .sale-div {
+    ::-webkit-scrollbar-corner {
+        background: #fff;
+    }
     .sale-content {
         height: 900px;
         background: url(../assets/images/sale/bg-entrustform.jpg) center bottom no-repeat #f8f8f8;
@@ -71,7 +74,7 @@
 
                 .form-item {
                     position: relative;
-                    margin-top: 30px;
+                    margin-top: 15px;
 
                     &>span {
                         display: inline-block;
@@ -81,7 +84,7 @@
                         display: inline-block;
                         width: 2em;
                     }
-                    input[type="text"] {
+                    input[type="text"], input[type="month"], input[type="number"] {
                         padding: 8px 10px;
                         _padding: 7px 10px;
                         width: 278px;
@@ -90,12 +93,32 @@
                         color: #2e2e2e;
                         font-size: 14px;
                         border: 0;
-
+                        border-radius: 3px;
                         border: #ddd solid 1px;
                         outline: none;
                     }
+                    .bootstrap-select {
+                        min-width: 150px;
+                        width: auto;
+                        .dropdown-menu {
+                            margin-top: 0;
+                            li {
+                                &:hover {
+                                    a {
+                                        color: $c1;
 
-                    button {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .w-100px {
+                        width: 100px !important;
+                    }
+                    .w-200px {
+                        width: 150px !important;
+                    }
+                    .next-step {
                         padding: 0 40px;
                         height: 40px;
                         line-height: 40px;
@@ -134,7 +157,7 @@
                     .unit {
                         position: absolute;
                         top: 7px;
-                        right: 7px;
+                        right: 30px;
 
                         font-size: 14px;
                         color: #999;

@@ -13,7 +13,7 @@
     <div class="form-item">
         <span>面<span class="space"></span>积</span>
         <div class="text-box">
-            <input type="text">
+            <input type="number" min="1">
             <div class="unit">平方</div>
         </div>
     </div>
@@ -26,9 +26,26 @@
     <div class="form-item">
         <span>价<span class="space"></span>格</span>
         <div class="text-box">
-            <input type="text">
+            <input type="number" min="1">
             <div class="unit">万元</div>
         </div>
+    </div>
+    <div class="form-item">
+        <span>房屋标签</span>
+        <select id="id_select" class="selectpicker" multiple data-actionsBox="true">
+            <option value="">红本在手</option>
+            <option value="">住家三房</option>
+            <option value="">刚需小户</option>
+            <option value="">随时看房</option>
+            <option value="">优选大房</option>
+            <option value="">南北通透</option>
+            <option value="">地铁房</option>
+            <option value="">不限购</option>
+            <option value="">满两年</option>
+            <option value="">急售</option>
+            <option value="">复式</option>
+        </select>
+
     </div>
 
     <div class="title">
@@ -51,6 +68,8 @@
             <input type="text">
         </div>
     </div>
+
+
 
     <div class="form-item"><button type="button" name="button" class="next-step" ng-click="nextStep(step.id+1)">下一步</button></div>
 </div>
