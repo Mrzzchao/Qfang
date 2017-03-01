@@ -1,4 +1,4 @@
-<div class="dropdown-wrapper">
+<div class="dropdown-wrapper" id="dd{{dropdown.id}}">
     <div class="dropdown-box clearfix" ng-mousedown="listShow()">
         <div class="text">
             <span class="num">{{selectItem}}</span>
@@ -6,7 +6,7 @@
         </div>
         <div class="icons-entrust caret caret{{dropdown.id}}"></div>
 
-        <input type="text" id="dropdown{{dropdown.id}}"  value="" ng-model="selectItem" ng-blur="listHide()">
+        <input type="text" id="dropdown{{dropdown.id}}" value="{{getModel()}}" ng-model="selectItem" ng-blur="listHide()" readonly required>
     </div>
     <ul class="dropdown-list" ng-show="listFlag">
         <li ng-repeat="item in dropdown.lists" ng-mousedown="listSelected(item)">{{item}}</li>

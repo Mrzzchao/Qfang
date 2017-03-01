@@ -10,12 +10,14 @@ $c3: #ddd;
 // }
 .dropdown-wrapper {
     position: relative;
-        display: inline-block;
+    display: inline-block;
+    min-width: 100px;
+    height: 34px;
 }
 .dropdown-box {
     display: inline-block;
-    width: 100px;
-    height: 34px;
+    width: 100%;
+    height: 100%;
     border: $c3 solid 1px;
     position: relative;
     z-index: 1;
@@ -79,7 +81,7 @@ $c3: #ddd;
     position: absolute;
     top: 30px;
     left: 0;
-    height: 200px;
+    height: 150px;
     overflow: auto;
     font-size: 14px;
     width: 100px;
@@ -100,5 +102,15 @@ $c3: #ddd;
             background: #f3f3f3;
             color: $c2;
         }
+    }
+}
+#dd6, #dd8 {
+    width: 145px !important;
+
+    .caret {
+        margin-left: 14px;
+    }
+    input {
+        width: 145px !important;
     }
 }

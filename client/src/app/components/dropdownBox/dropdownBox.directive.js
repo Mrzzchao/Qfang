@@ -11,7 +11,8 @@
       restrict: 'E',
       templateUrl: 'app/components/dropdownBox/dropdownBox.tpl.html',
       scope: {
-          dropdown: "="
+          dropdown: "=",
+          selectItem: "=selectitem"
       },
       controller: DropdownBoxController,
       link: DropdownBoxLink
@@ -21,6 +22,12 @@
 
     /** @ngInject */
     function DropdownBoxController($scope, $timeout) {
+        $scope.getModel = function() {
+            return "222";
+        }
+
+        watchModel($scope);
+        // $scope.selectItem = "";
         $("*").scroll(function(event) {
             /* Act on the event */
             event.stopPropagation();
@@ -61,7 +68,41 @@
 
     }
 
+    function watchModel($scope) {
+        // $scope.$watch("$parent.oldHouseMsg.houseAbout.roomC.bedR", function(newValue,oldValue, scope) {
+        //     scope.selectItem = newValue;
+        // }, false);
+        // $scope.$watch("$parent.oldHouseMsg.houseAbout.roomC.livingR", function(newValue,oldValue, scope) {
+        //     scope.selectItem = newValue;
+        // }, false);
+        // $scope.$watch("$parent.oldHouseMsg.houseAbout.roomC.restR", function(newValue,oldValue, scope) {
+        //     scope.selectItem = newValue;
+        // }, false);
+        // $scope.$watch("$parent.oldHouseMsg.houseAdress.buildingBlock", function(newValue,oldValue, scope) {
+        //     scope.selectItem = newValue;
+        // }, false);
+        // $scope.$watch("$parent.oldHouseMsg.houseAbout.directionR", function(newValue,oldValue, scope) {
+        //     scope.selectItem = newValue;
+        // }, false);
+        // $scope.$watch("$parent.oldHouseMsg.houseAbout.decoration", function(newValue,oldValue, scope) {
+        //     scope.selectItem = newValue;
+        // }, false);
+        // $scope.$watch("$parent.oldHouseMsg.houseAdress.floors.heightType", function(newValue,oldValue, scope) {
+        //     scope.selectItem = newValue;
+        // }, false);
+        // $scope.$watch("$parent.oldHouseMsg.otherMsg.lookTime", function(newValue,oldValue, scope) {
+        //     scope.selectItem = newValue;
+        // }, false);
+    }
+
     function DropdownBoxLink(scope, elem, attrs, ctrl) {
+        // console.log("1-------------");
+        // console.log(attrs);
+        // scope.$watch(attrs.selectItem, function(value) {
+        //     console.log("2----------");
+        //     console.log(value);
+        //   scope.selectItem = value;
+        // });
     }
   }
 

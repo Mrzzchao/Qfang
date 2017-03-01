@@ -2,7 +2,7 @@
   'use strict';
 
   var app = angular
-    .module('client', ['ngAnimate', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr']);
+    .module('client', ['ngAnimate', 'ngResource', 'ui.router', 'ui.bootstrap', 'toastr', 'angular-bootstrap-select.extra', 'angular-bootstrap-select']);
 
     app.controller('appCtrl', function($scope) {
       $scope.p = '广东';

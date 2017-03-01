@@ -71,7 +71,11 @@ a {
 li {
     transition: color .3s,background-color .3s,border-color .3s;
 }
-
+button[disabled], html input[disabled]  {
+  cursor: default;
+  background: #ccc !important;
+  &:hover {background: #ccc;}
+}
 .icons {
     line-height: 0;
     font-size: 0;

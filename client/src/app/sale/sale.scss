@@ -3,7 +3,7 @@
         background: #fff;
     }
     .sale-content {
-        height: 900px;
+        height: 950px;
         background: url(../assets/images/sale/bg-entrustform.jpg) center bottom no-repeat #f8f8f8;
         h1 {
             font-size: 28px;
@@ -14,7 +14,7 @@
 
         .saleForm {
             width: 1000px;
-            height: 700px;
+            height: 750px;
             margin: 0 auto 30px;
             filter: none;
             background-color: rgba(255,255,255,0.95);
@@ -75,7 +75,6 @@
                 .form-item {
                     position: relative;
                     margin-top: 15px;
-
                     &>span {
                         display: inline-block;
                         width: 100px;
@@ -84,13 +83,20 @@
                         display: inline-block;
                         width: 2em;
                     }
-                    input[type="text"], input[type="month"], input[type="number"] {
+                    input[type="text"], input[type="month"], input[type="number"], tea {
                         padding: 8px 10px;
                         _padding: 7px 10px;
                         width: 278px;
                         height: 38px;
                         line-height: 18px;
                         color: #2e2e2e;
+                        font-size: 14px;
+                        border: 0;
+                        border-radius: 3px;
+                        border: #ddd solid 1px;
+                        outline: none;
+                    }
+                    .recommend {
                         font-size: 14px;
                         border: 0;
                         border-radius: 3px;
@@ -104,6 +110,7 @@
                             margin-top: 0;
                             li {
                                 &:hover {
+                                    background: #f3f3f3;
                                     a {
                                         color: $c1;
 
@@ -131,6 +138,17 @@
                         font-family: "\5fae\8f6f\96c5\9ed1";
                         display: inline-block;
                         border: none;
+                    }
+                    .s_btn {
+                        margin-left: 3px;
+                    }
+                    .back-step {
+                        height: 40px;
+                        line-height: 40px;
+                        color: #999;
+                        font-size: 14px;
+                        cursor: pointer;
+                        margin-right: -100px;
                     }
                     .dropdown-box {
                         position: relative;
@@ -227,5 +245,14 @@
                 }
             }
         }
+    }
+
+    .alert-info, .alert-danger {
+        display: inline-block;
+        padding: 5px;
+        margin-bottom: 0;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        font-size: 14px;
     }
 }

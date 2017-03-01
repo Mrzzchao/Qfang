@@ -1,75 +1,87 @@
 <div class="row tabs">
-    <div class="col-md-3 step" ng-class="{on: step.id==1}"><span class="num">1</span>填写基本信息<span class="triangle"></span></div>
-    <div class="col-md-3 step" ng-class="{on: step.id==2}"><span class="num">2</span>完善房源资料<span class="triangle"></span></div>
-    <div class="col-md-3 step" ng-class="{on: step.id==3}"><span class="num">3</span>上传房源图片<span class="triangle"></span></div>
-    <div class="col-md-3 step" ng-class="{on: step.id==4}"><span class="num">4</span>提交完成<span class="triangle"></span></div>
+  <div class="col-md-3 step" ng-class="{on: step.id==1}">
+    <span class="num">1</span>填写基本信息<span class="triangle"></span>
+  </div> selectItem="oldHouseMsg.houseAdress.buildingBlock"
+  <div class="col-md-3 step" ng-class="{on: step.id==2}">
+    <span class="num">2</span>完善房源资料<span class="triangle"></span>
+  </div>
+  <div class="col-md-3 step" ng-class="{on: step.id==3}">
+    <span class="num">3</span>上传房源图片<span class="triangle"></span>
+  </div>
+  <div class="col-md-3 step" ng-class="{on: step.id==4}">
+    <span class="num">4</span>提交完成<span class="triangle"></span>
+  </div>
 </div>
 
 <div class="form-content">
+  <ng-form name="saleForm2" id="saleForm2">
     <div class="title">
-        {{step2.title}}
+      {{step2.title}}
     </div>
 
     <div class="form-item">
-        <span>面<span class="space"></span>积</span>
-        <div class="text-box">
-            <input type="number" min="1">
-            <div class="unit">平方</div>
-        </div>
+      <span>面<span class="space"></span>积</span>
+      <div class="text-box">
+        <input type="number" min="1" oninput="if(value.length>5)value=value.slice(0,5)" ng-model="oldHouseMsg.houseAbout.size" required>
+        <div class="unit">平方</div>
+      </div>
     </div>
     <div class="form-item">
-        <span>房<span class="space"></span>型</span>
-        <dropdown-box dropdown="dropdown1" class="dropdown1"></dropdown-box>
-        <dropdown-box dropdown="dropdown2" ></dropdown-box>
-        <dropdown-box dropdown="dropdown3" ></dropdown-box>
+      <span>房<span class="space"></span>型</span>
+      <dropdown-box dropdown="dropdown1" class="dropdown1" selectItem="oldHouseMsg.houseAbout.roomC.bedR"></dropdown-box>
+      <dropdown-box dropdown="dropdown2" selectItem="oldHouseMsg.houseAbout.roomC.livingR"></dropdown-box>
+      <dropdown-box dropdown="dropdown3" selectItem="oldHouseMsg.houseAbout.roomC.restR"></dropdown-box>
     </div>
     <div class="form-item">
-        <span>价<span class="space"></span>格</span>
-        <div class="text-box">
-            <input type="number" min="1">
-            <div class="unit">万元</div>
-        </div>
+      <span>价<span class="space"></span>格</span>
+      <div class="text-box">
+        <input type="number" min="1" oninput="if(value.length>5)value=value.slice(0,5)" ng-model="oldHouseMsg.houseAbout.allPrice" required>
+        <div class="unit">万元</div>
+      </div>
     </div>
     <div class="form-item">
-        <span>房屋标签</span>
-        <select id="id_select" class="selectpicker" multiple data-actionsBox="true">
-            <option value="">红本在手</option>
-            <option value="">住家三房</option>
-            <option value="">刚需小户</option>
-            <option value="">随时看房</option>
-            <option value="">优选大房</option>
-            <option value="">南北通透</option>
-            <option value="">地铁房</option>
-            <option value="">不限购</option>
-            <option value="">满两年</option>
-            <option value="">急售</option>
-            <option value="">复式</option>
-        </select>
-
+      <span>房屋标签</span>
+      <select selectpicker="" class="selectpicker" multiple data-actionsBox="true" data-live-search="true" ng-model="oldHouseMsg.otherMsg.specials" required title="请选择房源标签" dropupAuto="false">
+        <option ng-repeat="special in specialLists" value="{{special}}">{{special}}</option>
+      </select>
+    </div>
+    <div class="form-item">
+      <span>推荐理由</span>
+      <!-- <textarea class="recommend" name="name" rows="3" cols="50" placeholder="请输入推荐理由,字数少于200" required></textarea> -->
+      <text-area></text-area>
     </div>
 
     <div class="title">
-        委托人信息
+      委托人信息
     </div>
     <div class="form-item">
-        <span>您的姓名</span>
-        <div class="text-box">
-            <input type="text">
-        </div>
-        <div class="radio-box">
-            <label for="sex1"><input type="radio" name="sex" id="sex1">先生</label>
-            <label for="sex2"><input type="radio" name="sex" id="sex2">女士</label>
-        </div>
+      <span>您的姓名</span>
+      <div class="text-box">
+        <input type="text" ng-model="oldHouseMsg.owner.xingming" name="ownername" placeholder="请输入您的中文姓名" ng-pattern="pattern.reg.name" required>
+      </div>
+      <div class="radio-box">
+        <label for="sex1"><input type="radio" name="sex" id="sex1" ng-model="oldHouseMsg.owner.sex" value="先生" required>先生</label>
+        <label for="sex2"><input type="radio" name="sex" id="sex2" ng-model="oldHouseMsg.owner.sex" value="女士" required>女士</label>
+      </div>
+      <div class="alert alert-danger" ng-show="saleForm2.ownername.$error.pattern">
+          {{pattern.msg.name}}
+      </div>
+    </div>
+    <div class="form-item">
+      <span>手机号码</span>
+      <div class="text-box">
+        <input type="text" ng-model="oldHouseMsg.owner.tel" name="phone" placeholder="请输入您的手机号" ng-pattern="pattern.reg.phone" required>
+      </div>
+      <div class="form-item alert alert-danger" ng-show="saleForm2.phone.$error.pattern">
+          {{pattern.msg.phone}}
+      </div>
     </div>
 
     <div class="form-item">
-        <span>手机号码</span>
-        <div class="text-box">
-            <input type="text">
-        </div>
+      <span>
+        <a class="back-step" ng-click="backStep(step.id-1)">返回上一步</a>
+      </span>
+      <button type="button" name="button" ng-disabled='saleForm2.$invalid' class="next-step s_btn" ng-click="nextStep(step.id+1)">下一步</button>
     </div>
-
-
-
-    <div class="form-item"><button type="button" name="button" class="next-step" ng-click="nextStep(step.id+1)">下一步</button></div>
+  </ng-form>
 </div>
