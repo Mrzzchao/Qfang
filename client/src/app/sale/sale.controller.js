@@ -7,20 +7,21 @@
 
 
 	/** @ngInject */
-	function SaleController($scope, $state, $location, $timeout, pattern, oldHouse) {
-
+	function SaleController($scope, $state, $location, $timeout, pattern, oldHouse, extend) {
+		$scope.formData = new FormData();
+		$scope.oldHouseMsg = oldHouse.getData();
+		var houseData = $.param($scope.oldHouseMsg);
 		initAddressSelector($scope);
-		initFileInput("input-id");
+		initFileInput("input-id", $scope, houseData);
 		initBootSelector($scope);
 		initDropdown($scope);
 		$("#dropdown7").val("11111111111");
 		var self = this;
 		var strArr = $location.absUrl().split("");
 		$scope.pattern = pattern;
-		$scope.oldHouseMsg = oldHouse.getData();
-		$timeout(function() {
-			setDropdownValue($scope);
-		}, 1000);
+		// $timeout(function() {
+		// 	setDropdownValue($scope);
+		// }, 1000);
 		$scope.step = {
 			id: parseInt(strArr[strArr.length - 1]),
 			btnName: "下一步"
@@ -45,9 +46,21 @@
 		$scope.backStep = function(stepId) {
 			$state.go("sale.step" + stepId);
 		}
+		$scope.upload = function() {
+			$("#input-id").fileinput("upload");
+			$scope.nextStep(4);
+		}
 		$scope.step2 = {
-			title: "汇景新城,汇景新城(后天河北) A1栋702"
+			title: getStep2Title($scope.oldHouseMsg)
 		};
+	}
+
+	function getStep2Title(oldHouseMsg) {
+		var areaName = oldHouseMsg.houseAdress.community;
+		var buildingBlock = oldHouseMsg.houseAdress.buildingBlock;
+		var roomN = oldHouseMsg.houseAdress.roomN;
+
+		return areaName + " " + buildingBlock + "栋" + roomN;
 	}
 
 	function initAddressSelector($scope) {
@@ -76,20 +89,44 @@
 		];
 	}
 
-	function initFileInput(ctrlName) {
+	function initFileInput(ctrlName, $scope, houseData) {
+		var formData = new FormData();
 		var control = $('#' + ctrlName);
 		control.fileinput({
 			language: 'zh', //设置语言
-			uploadUrl: "upload/insert", //上传的地址
-			allowedFileExtensions: ['jpg', 'gif', 'png'], //接收的文件后缀
+			uploadUrl: "oldHouse/upload", //上传的地址
+			browseLabel: '图片多选',
+			allowedFileExtensions: ['jpg', 'png'], //接收的文件后缀
+			allowedFileTypes: ['image'], // 限制文件类型为图片
+			allowedPreviewTypes: ['image'], // 允许预览的文件类型
+			// initialPreviewShowDelete: true,   // 这一条是个完全搞不懂的bug
+			maxFileCount: 16,  // 限制最多3张图片
+		    maxFileSize: 2048, // 限制图片大小，最大1024KB
+			initialCaption: '可以选择最多16张图片，格式为png或者jpg，大小不超过2M', // 初始化说明框框，比如该项目上默认显示：可以选择最多3张图片，格式为png或者jpg，大小不超过1M
 			uploadAsync: true, //默认异步上传
-			showUpload: true, //是否显示上传按钮
+			showUpload: false, //是否显示上传按钮
 			showRemove: true, //显示移除按钮
 			showPreview: true, //是否显示预览
 			showCaption: false, //是否显示标题
 			browseClass: "btn btn-primary", //按钮样式
 			mainClass: "fileInputMain",
 			previewClass: "fileInputPreview",
+			showUploadedThumbs: false,
+			initialPreviewShowDelete:true,
+			uploadExtraData: {mgs: houseData},
+		// 	layoutTemplates: {
+		//       main1: '{preview}\n' +
+		//       '<div class="input-group {class}">\n' +
+		//       ' <div class="input-group-btn">\n' +
+		//       ' {browse}\n' +
+		//       ' {remove}\n' +
+		//       ' </div>\n' +
+		//       ' {caption}\n' +
+		//       '</div>',
+		//       footer: '<div class="file-thumbnail-footer">\n' +
+		//       ' <div class="file-caption-name">{caption}{size}</div>\n' +
+		//       '</div>'
+		//   },
 			// dropZoneEnabled: true,//是否显示拖拽区域
 			// minImageWidth: 50, //图片的最小宽度
 			// minImageHeight: 50,//图片的最小高度
@@ -109,11 +146,18 @@
 				extra = data.extra,
 				response = data.response,
 				reader = data.reader;
+				formData.append('data', data);
+				console.log("111111");
+				console.log(formData);
 		}).on("fileuploaded", function(event, data, previewId, index) { //一个文件上传成功
-
+			console.log("fileloaded");
 		}).on('fileerror', function(event, data, msg) { //一个文件上传失败
 
+			formData.append('data', data);
+			console.log("111111");
+			console.log(formData);
 		})
+
 	}
 
 	function initDropdown($scope) {
@@ -196,45 +240,6 @@
 		}
 
 		next();
-	}
-
-	function setDropdownValue($scope) {
-
-		var tmp = "";
-		// console.log($scope.oldHouseMsg);
-		for (var i = 1; i < 9; i++) {
-			// console.log(i);
-			switch (i) {
-				case 1:
-					$("#dropdown" + i).val($scope.oldHouseMsg.houseAbout.roomC.bedR);
-					break;
-				case 2:
-					$("#dropdown" + i).val($scope.oldHouseMsg.houseAbout.roomC.livingR);
-					break;
-				case 3:
-					$("#dropdown" + i).val($scope.oldHouseMsg.houseAbout.roomC.restR);
-					break;
-				case 4:
-					$("#dropdown" + i).val($scope.oldHouseMsg.houseAdress.buildingBlock);
-					break;
-				case 5:
-					$("#dropdown" + i).val($scope.oldHouseMsg.houseAbout.direction);
-					break;
-				case 6:
-					$("#dropdown" + i).val($scope.oldHouseMsg.houseAbout.decoration);
-					break;
-				case 7:
-					$("#dropdown" + i).val($scope.oldHouseMsg.houseAdress.floors.heightType);
-					break;
-				case 8:
-					$("#dropdown" + i).val($scope.oldHouseMsg.otherMsg.lookTime);
-					break;
-				default:
-
-			}
-			// console.log($("#dropdown" + i).val());
-
-		}
 	}
 
 })();

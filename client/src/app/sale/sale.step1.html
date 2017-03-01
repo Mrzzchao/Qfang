@@ -17,7 +17,7 @@
 
             </div>
             <div class="col-md-6">
-                <div class="form-item"><span>房<span class="space"></span>号</span><input type="number" name="" class="w-100px" min="0" ng-model="oldHouseMsg.houseAdress.roomN" required></div>
+                <div class="form-item"><span>房<span class="space"></span>号</span><input type="number" oninput="if(value.length>4)value=value.slice(0,4)" name="" class="w-100px" min="0" ng-model="oldHouseMsg.houseAdress.roomN" required></div>
 
             </div>
         </div>
@@ -27,7 +27,7 @@
 
                 </div>
                 <div class="col-md-6">
-                    <div class="form-item"><span>楼<span class="space"></span>层</span><input type="number" name="" value="" class="w-100px" min="-5" ng-model="oldHouseMsg.houseAdress.floors.floor" required></div>
+                    <div class="form-item"><span>楼<span class="space"></span>层</span><input type="number" oninput="if(value.length>3)value=value.slice(0,3)" name="" value="" class="w-100px" min="-5" ng-model="oldHouseMsg.houseAdress.floors.floor" required></div>
                 </div>
             </div>
             <div class="row">

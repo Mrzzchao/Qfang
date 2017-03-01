@@ -7,8 +7,11 @@
 
 <div class="form-content">
     <div class="file-box">
-        <input id="input-id" type="file" multiple>
+        <ng-form name="saleForm3" id="saleForm3">
+
+            <input id="input-id" type="file" multiple required>
+        </ng-form>
     </div>
-    <div class="form-item"><span><a class="back-step" ng-click="backStep(step.id-1)">返回上一步</a></span><button type="button" name="button" class="next-step s_btn" ng-click="nextStep(step.id+1)">下一步</button></div>
+    <div class="form-item"><span><a class="back-step" ng-disabled='saleForm3.$invalid' ng-click="backStep(step.id-1)">返回上一步</a></span><button type="button" name="button" class="next-step s_btn" ng-click="upload()">提交房源</button></div>
 
 </div>
