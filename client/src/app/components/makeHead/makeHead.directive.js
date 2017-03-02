@@ -15,7 +15,8 @@
           t2: "@",
           c1: "@",
           c2: "@",
-          m: "@"
+          m: "@",
+          url: "@"
       },
       controller: MakeHeadController
     };

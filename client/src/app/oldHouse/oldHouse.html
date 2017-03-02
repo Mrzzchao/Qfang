@@ -13,36 +13,36 @@
 
             <div class="old-body">
                 <div class="row house-count">
-                    共找到<span class="num">905</span>套广州二手住房
+                    共找到<span class="num">{{oldHouseArr.length}}</span>套广州二手住房
                 </div>
 
                 <div class="row house-item" ng-repeat="oldHouseMsg in oldHouseArr">
                     <div class="col-md-3">
-                        <a ui-sref="oldHouseShow">
-                            <img src="assets/images/oldHouse/CvtcKlgoBbCASFjmAAFRMLctOFA972.jpg" width="215" height="165" alt="">
+                        <a  ng-click="toOldHouseShow(oldHouseMsg)">
+                            <img ng-src="assets/images/oldHouse/{{oldHouseMsg.imgUrls[0]}}" width="215" height="175" alt="">
                         </a>
 
                     </div>
                   <div class="col-md-7 house-info">
-                      <div class="row house-title">
-                        <a ui-sref="oldHouseShow">{{oldHouseMsg.showKeyword}}</a>
+                      <div class="row house-title" ng-click="toOldHouseShow(oldHouseMsg)">
+                        <a ng-click="toOldHouseShow(oldHouseMsg)">{{oldHouseMsg.showKeyword}}</a>
                       </div>
                       <div class="row">
                         <span>{{oldHouseMsg.houseAbout.roomC}}</span>
                         <span class="blank"></span><span class="v-line"></span><span class="blank">
-                        <span>{{oldHouseMsg.houseAbout.size}}</span>
+                        <span>{{oldHouseMsg.houseAbout.size}}平米</span>
                         <span class="blank"></span><span class="v-line"></span><span class="blank">
                         <span>{{oldHouseMsg.houseAbout.decoration}}</span>
                         <span class="blank"></span><span class="v-line"></span><span class="blank">
-                        <span>{{oldHouseMsg.houseAbout.floor}}</span>
+                        <span>{{oldHouseMsg.houseAddress.floor}}</span>
                         <span class="blank"></span><span class="v-line"></span><span class="blank">
-                        <span>{{oldHouseMsg.houseAbout.born}}</span>
+                        <span>{{oldHouseMsg.houseAbout.born}}年建</span>
                       </div>
                       <div class="row">
-                        <span>{{oldHouseMsg.houseAdress.place}}</span>
-                        <span>[{{oldHouseMsg.houseAdress.area}} <span class="blank"></span>{{oldHouseMsg.houseAdress.road}}]</span>
+                        <span>{{oldHouseMsg.houseAddress.community}}</span>
+                        <span>[{{oldHouseMsg.houseAddress.area}} <span class="blank"></span>{{oldHouseMsg.houseAddress.road}}]</span>
                         <span class="blank"></span>
-                        <span>{{oldHouseMsg.houseAdress.detail}}</span>
+                        <span>{{oldHouseMsg.houseAddress.detail}}</span>
                       </div>
 
                       <div class="row who">
@@ -50,7 +50,7 @@
                       </div>
 
                       <div class="row">
-                        <span class="special" ng-repeat="s_tag in oldHouseMsg.special">{{s_tag}}</span>
+                        <span class="special" ng-repeat="s_tag in oldHouseMsg.otherMsg.specials">{{s_tag}}</span>
                       </div>
                   </div>
 

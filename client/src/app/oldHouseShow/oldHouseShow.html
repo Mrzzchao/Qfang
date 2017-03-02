@@ -6,6 +6,7 @@
       <h1 class="title1">{{oldHouseMsg.showKeyword}}</h1>
     </div>
     <div class="container-fluid house-info-wrapper">
+     <img ng-src="assets/images/oldHouse/{{oldHouseMsg.imgUrls[0]}}" class="bg_blur_img">
       <div class="container house-info">
         <div class="row">
           <carousel-box class="col-md-8 carousel"></carousel-box>
@@ -30,7 +31,7 @@
             <div class="row placeMsg">
               <div class="row first">
                 <div class="col-md-3 font-gray">小区名称</div>
-                <div class="col-md-9">{{oldHouseMsg.houseAdress.place}}</div>
+                <div class="col-md-9">{{oldHouseMsg.houseAddress.community}}</div>
               </div>
               <div class="row">
                 <div class="col-md-3 font-gray">看房时间</div>
@@ -42,8 +43,8 @@
               </div>
               <div class="row">
                 <div class="col-md-3 font-gray">所在地址</div>
-                <div class="col-md-9">[{{oldHouseMsg.houseAdress.area}}
-                  <span class="blank"></span>{{oldHouseMsg.houseAdress.road}}]<span class="blank"></span>{{oldHouseMsg.houseAdress.detail}}</div>
+                <div class="col-md-9">[{{oldHouseMsg.houseAddress.area}}
+                  <span class="blank"></span>{{oldHouseMsg.houseAddress.road}}]<span class="blank"></span>{{oldHouseMsg.houseAddress.detail}}</div>
               </div>
 
             </div>
@@ -51,14 +52,14 @@
             <div class="row buildingMsg">
               <div class="row font-big first">
                 <div class="col-md-4 font-hei">{{oldHouseMsg.houseAbout.roomC}}</div>
-                <div class="col-md-4 font-hei">{{oldHouseMsg.houseAbout.size}}</div>
+                <div class="col-md-4 font-hei">{{oldHouseMsg.houseAbout.size}}平米</div>
                 <div class="col-md-4 font-hei">{{oldHouseMsg.houseAbout.direction}}</div>
               </div>
 
               <div class="row font-small">
-                <div class="col-md-4 font-gray">{{oldHouseMsg.houseAbout.floor}}</div>
+                <div class="col-md-4 font-gray">{{oldHouseMsg.houseAddress.floor}}</div>
                 <div class="col-md-4 font-gray">{{oldHouseMsg.houseAbout.decoration}}</div>
-                <div class="col-md-4 font-gray">{{oldHouseMsg.houseAbout.born}}</div>
+                <div class="col-md-4 font-gray">{{oldHouseMsg.houseAbout.born}}年建</div>
               </div>
             </div>
 
@@ -110,7 +111,7 @@
                 房源标签
               </div>
               <div class="col-md-10 ">
-                  <span class="special" ng-repeat="s_tag in oldHouseMsg.special">{{s_tag}}</span>
+                  <span class="special" ng-repeat="s_tag in oldHouseMsg.otherMsg.specials">{{s_tag}}</span>
               </div>
             </div>
             <div class="row">
@@ -119,7 +120,7 @@
                 </div>
 
                 <div class="col-md-10">
-                    {{oldHouseMsg.reason}}
+                    {{oldHouseMsg.otherMsg.recommend}}
                 </div>
             </div>
             <div class="row">
@@ -143,7 +144,7 @@
             <h1 class="row title">房源图片</h1>
 
             <div class="pic-content">
-                <img ng-src="assets/images/oldHouse/{{imgUrl}}.jpg" alt="" ng-repeat="imgUrl in oldHouseMsg.imgUrls" height="350">
+                <img ng-src="assets/images/oldHouse/{{imgUrl}}" alt="" ng-repeat="imgUrl in oldHouseMsg.imgUrls" height="350">
             </div>
 
             <div class="show_more"><a ng-click="showMore()">显示更多图片</a></div>

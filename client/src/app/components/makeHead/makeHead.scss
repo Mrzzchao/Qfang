@@ -24,6 +24,10 @@
 
 .more {
     color: #2e2e2e;
+    cursor: pointer;
+    &:hover {
+        color: $c2;
+    }
 }
 
 .toBottom {

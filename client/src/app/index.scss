@@ -57,6 +57,7 @@ label {
     font-weight: normal;
 }
 a {
+    cursor: pointer;
     &:link, &:hover, &:focus {
         background-color: transparent !important;
     }

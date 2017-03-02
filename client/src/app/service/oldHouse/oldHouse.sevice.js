@@ -7,6 +7,7 @@
 
   /** @ngInject */
   function oldHouse() {
+      var oldHouseId = 1;
       var data = {
           showKeyword: "",
           houseAbout: {
@@ -50,6 +51,12 @@
           },
           setData: function(data) {
               data = $.extend(true, {}, data);
+          },
+          setId: function(id) {
+              oldHouseId = id;
+          },
+          getId: function() {
+              return oldHouseId;
           }
       }
   }

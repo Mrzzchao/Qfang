@@ -7,15 +7,13 @@
 
 
 	/** @ngInject */
-	function SaleController($scope, $state, $location, $timeout, pattern, oldHouse, extend) {
+	function SaleController($scope, $location, $http, $interval, $state, $timeout, pattern, user, extend, oldHouse) {
 		$scope.formData = new FormData();
 		$scope.oldHouseMsg = oldHouse.getData();
-		var houseData = $.param($scope.oldHouseMsg);
 		initAddressSelector($scope);
-		initFileInput("input-id", $scope, houseData);
+		initFileInput("input-id", $scope, oldHouse);
 		initBootSelector($scope);
 		initDropdown($scope);
-		$("#dropdown7").val("11111111111");
 		var self = this;
 		var strArr = $location.absUrl().split("");
 		$scope.pattern = pattern;
@@ -46,14 +44,70 @@
 		$scope.backStep = function(stepId) {
 			$state.go("sale.step" + stepId);
 		}
-		$scope.upload = function() {
+		$scope.uploadImg = function() {
 			$("#input-id").fileinput("upload");
 			$scope.nextStep(4);
+		}
+		$scope.uploadMsg = function() {
+			// $scope.nextStep(3);
+			uploadMsgRequest($scope, $http, extend);
 		}
 		$scope.step2 = {
 			title: getStep2Title($scope.oldHouseMsg)
 		};
+		function uploadMsgRequest() {
+			$scope.toUrl = "sale.step3";
+			$scope.msg = "";
+			var baseUrl = '/oldHouse';
+			(function() {
+				var tmp = {};
+				var dataStr = '';
+				extend(tmp, $scope.oldHouseMsg);
+				dataStr = $.param(tmp);
+				$http.post(baseUrl + '/upload/msg', dataStr, {
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					}
+				}).success(function(data) {
+					if (data.err) {
+						$scope.msg = data.err;
+						console.log(data);
+						$('#mymodal').modal('show');
+
+					} else {
+						oldHouse.setId(data);
+						successUploadMsg();
+					}
+
+				}).error(function(data) {
+					$scope.msg = '服务器错误,不能提交';
+					$('#mymodal').modal('show');
+				});
+			})();
+		}
+		function successUploadMsg() {
+			var count = 3;
+			$scope.toUrl = "sale.step3";
+			$scope.msg = '文本信息上传成功, ' + 　count + '秒后自动跳转下一步骤';
+			$scope.toShow = true;
+			$('#mymodal').modal('show');
+			$scope.timer = $interval(function() {
+				$scope.msg = '文本信息上传成功, ' + 　count + '秒后自动跳转下一步骤';
+				if (count === 0) {
+					$interval.cancel($scope.timer);
+
+				}
+				count--;
+				if (count === -1) {
+					$timeout(function() {
+						$state.go('sale.step3');
+					}, 1000);
+					$('#mymodal').modal('hide');
+				}
+			}, 1000);
+		}
 	}
+
 
 	function getStep2Title(oldHouseMsg) {
 		var areaName = oldHouseMsg.houseAdress.community;
@@ -89,12 +143,13 @@
 		];
 	}
 
-	function initFileInput(ctrlName, $scope, houseData) {
+	function initFileInput(ctrlName, $scope, oldHouse) {
 		var formData = new FormData();
 		var control = $('#' + ctrlName);
+		var id = oldHouse.getId();
 		control.fileinput({
 			language: 'zh', //设置语言
-			uploadUrl: "oldHouse/upload", //上传的地址
+			uploadUrl: "oldHouse/upload/img?id=" + id, //上传的地址
 			browseLabel: '图片多选',
 			allowedFileExtensions: ['jpg', 'png'], //接收的文件后缀
 			allowedFileTypes: ['image'], // 限制文件类型为图片
@@ -113,7 +168,7 @@
 			previewClass: "fileInputPreview",
 			showUploadedThumbs: false,
 			initialPreviewShowDelete:true,
-			uploadExtraData: {mgs: houseData},
+			uploadExtraData: {id: id},
 		// 	layoutTemplates: {
 		//       main1: '{preview}\n' +
 		//       '<div class="input-group {class}">\n' +

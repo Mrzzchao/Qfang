@@ -36,7 +36,7 @@
     <div class="col-md-10 col-md-offset-1">
       <div class="row">
         <div class="col-md-4 entrances-item entrances-old text-center">
-          <a href="#">
+          <a ui-sref="oldHouse">
             <div class="icon-box">
               <span class="icon"></span>
             </div>
@@ -45,7 +45,7 @@
           <p>海量真房源</p>
         </div>
         <div class="col-md-4 entrances-item entrances-new text-center">
-          <a href="#">
+          <a ui-sref="oldHouse">
             <div class="icon-box">
               <span class="icon"></span>
             </div>
@@ -54,7 +54,7 @@
           <p>优质新盘，团购特惠</p>
         </div>
         <div class="col-md-4 entrances-item entrances-sale text-center">
-          <a href="#">
+          <a ui-sref="sale.step1">
             <div class="icon-box">
               <span class="icon"></span>
             </div>
@@ -67,7 +67,7 @@
   </div>
 
   <div class="container oldHouse">
-    <make-head t1={{oldHouseMes.title[0]}} t2={{oldHouseMes.title[1]}} c1={{oldHouseMes.caption[0]}} c2={{oldHouseMes.caption[1]}} m={{oldHouseMes.more}}></make-head>
+    <make-head url="oldHouse" t1={{oldHouseMes.title[0]}} t2={{oldHouseMes.title[1]}} c1={{oldHouseMes.caption[0]}} c2={{oldHouseMes.caption[1]}} m={{oldHouseMes.more}}></make-head>
 
     <div class="row pic-content">
       <div class="col-md-3">
@@ -135,7 +135,7 @@
   </div>
 
   <div class="container newHouse">
-    <make-head t1={{newHouseMes.title[0]}} t2={{newHouseMes.title[1]}} c1={{newHouseMes.caption[0]}} c2={{newHouseMes.caption[1]}} m={{newHouseMes.more}}></make-head>
+    <make-head url="oldHouse" t1={{newHouseMes.title[0]}} t2={{newHouseMes.title[1]}} c1={{newHouseMes.caption[0]}} c2={{newHouseMes.caption[1]}} m={{newHouseMes.more}}></make-head>
 
     <div class="pic-content">
       <div class="left">

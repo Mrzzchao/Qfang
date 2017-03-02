@@ -1,7 +1,7 @@
 <div class="row tabs">
   <div class="col-md-3 step" ng-class="{on: step.id==1}">
     <span class="num">1</span>填写基本信息<span class="triangle"></span>
-  </div> selectItem="oldHouseMsg.houseAdress.buildingBlock"
+  </div>
   <div class="col-md-3 step" ng-class="{on: step.id==2}">
     <span class="num">2</span>完善房源资料<span class="triangle"></span>
   </div>
@@ -81,7 +81,8 @@
       <span>
         <a class="back-step" ng-click="backStep(step.id-1)">返回上一步</a>
       </span>
-      <button type="button" name="button" ng-disabled='saleForm2.$invalid' class="next-step s_btn" ng-click="nextStep(step.id+1)">下一步</button>
+      <button type="button" name="button" ng-disabled='saleForm2.$invalid' class="next-step s_btn" ng-click="uploadMsg()">下一步</button>
     </div>
   </ng-form>
+  <tip-box></tip-box>
 </div>

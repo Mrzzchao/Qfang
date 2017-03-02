@@ -56,11 +56,13 @@
                 event.stopPropagation();
                 return false;
               });
-              $(window).on('click', (function(_this) {
-                return function() {
-                  return _this.hide();
-                };
-              })(this));
+              $(document).bind("click",
+              function(e) {
+                  var target = $(e.target);
+                  if (target.closest(".select-address").length == 0) {
+                      popup.hide();
+                  }
+              });
               this.element.on('click', function() {
                 return event.stopPropagation();
               });

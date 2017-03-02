@@ -26,13 +26,13 @@
         console.log(scope.imgUrls);
         for(var i = 0, len = scope.imgUrls.length; i < len; i++) {
             new_li = $("<li></li>");
-            new_li.html("<img src='assets/images/oldHouse/" + scope.imgUrls[i] + ".jpg' width='130' height='98'><div class='bun_bg'></div>");
+            new_li.html("<img src='assets/images/oldHouse/" + scope.imgUrls[i] + "' width='130' height='98'><div class='bun_bg'></div>");
             $(".small_list ul").append(new_li);
         }
 
         for(var i = 0, len = scope.imgUrls.length; i < len; i++) {
             new_li = $("<li></li>");
-            new_li.html("<img src='assets/images/oldHouse/" + scope.imgUrls[i] + ".jpg' width='690' height='517'>");
+            new_li.html("<img src='assets/images/oldHouse/" + scope.imgUrls[i] + "' width='690' height='517'>");
             $(".large_box ul").append(new_li);
         }
         (function($){
