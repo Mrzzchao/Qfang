@@ -67,10 +67,9 @@
         // data = defaultData.map(function(data) {
         //     return setDatas(data);
         // });
-        $timeout(function() {
-            request();
 
-        }, 1000);
+        request();
+
         function request() {
             $http.get("/oldHouse")
             .success(function(result) {
@@ -100,6 +99,7 @@
         }
 		return {
 			getData: function() {
+                    // request();
 				return data;
 			},
             setData: function(objArr) {
@@ -138,9 +138,10 @@
 			tmp.houseAddress.area = addressArr[2];
 			tmp.houseAddress.road = addressArr[3];
 			tmp.owner.tel = telStr;
-			tmp.otherMsg.aroundSchool = "广州市番禺区市桥西丽小学";
-			tmp.traffic = "华侨城  华侨城 房源优势 1.正规户型： 3室。朝向： 南  日照充足。 2.现在的房子相比前期有优势 3.室内装修情况：精装修";
-			tmp.surroundings = "华侨城  华侨城 房源优势 1.正规户型： 3室。朝向： 南  日照充足。 2.现在的房子相比前期有优势 3.室内装修情况：精装修";
+			tmp.otherMsg.aroundSchool = tmp.houseAddress.city + "市" + tmp.houseAddress.area + "区" + "西丽小学";
+            tmp.houseAddress.details = tmp.houseAddress.city + "市" + tmp.houseAddress.area + tmp.houseAddress.road + tmp.houseAddress.community + tmp.houseAddress.buildingBlock + "栋" + tmp.houseAddress.floors.floor + "层" + tmp.houseAddress.roomN + "号单元";
+			tmp.traffic = tmp.houseAddress.community + "的交通便利，出行方便，居家旅行必备小区";
+			tmp.surroundings = tmp.houseAddress.community + "周围有医院，银行，运动场，生活配置十分齐全";
             console.log(tmp);
             return tmp;
 		}
