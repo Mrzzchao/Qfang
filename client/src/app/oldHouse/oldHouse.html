@@ -5,18 +5,17 @@
         <a target="_blank" href="http://h5.qfang.com/realhouse/"><img width="100%" height="70" src="assets/images/oldHouse/ad-zh-really-house.jpg" data-pin-nopin="true"></a>
         <div class="old-content">
             <div class="old-tabs">
-                <a href="javascript:void(0)" class="on">默认排序</a>
-                <a href="javascript:void(0)">面积</a>
-                <a href="javascript:void(0)">总价</a>
-                <a href="javascript:void(0)">单价</a>
+                <a ng-click='col=""; desc=desc; orderId=1' ng-class="{on: orderId==1}">默认排序</a>
+                <a ng-click='col="houseAbout.size"; desc=!desc; orderId=2' ng-class="{on: orderId==2}">面积 <span class="triangle"><span class="triangle-up" ng-show="orderIcon(orderId==2, desc)"></span><span class="triangle-down" ng-show="orderIcon(orderId==2, !desc)"></span></span></a>
+                <a ng-click='col="houseAbout.allPrice"; desc=!desc; orderId=3' ng-class="{on: orderId==3}">总价 <span class="triangle"><span class="triangle-up" ng-show="orderIcon(orderId==3, desc)"></span><span class="triangle-down" ng-show="orderIcon(orderId==3, !desc)"></span></span></a>
+                <a ng-click='col="houseAbout.avgPrice"; desc=!desc; orderId=4' ng-class="{on: orderId==4}">单价 <span class="triangle"><span class="triangle-up" ng-show="orderIcon(orderId==4, desc)"></span><span class="triangle-down" ng-show="orderIcon(orderId==4, !desc)"></span></span></a>
             </div>
-
             <div class="old-body">
                 <div class="row house-count">
-                    共找到<span class="num">{{oldHouseArr.length}}</span>套广州二手住房
+                    共找到<span class="num">{{oldHouseArr|filter:search|getArrLength}}</span>套广州二手住房
                 </div>
 
-                <div class="row house-item" ng-repeat="oldHouseMsg in oldHouseArr">
+                <div class="row house-item" ng-repeat="oldHouseMsg in oldHouseArr|filter:search|orderBy: col:desc">
                     <div class="col-md-3">
                         <a  ng-click="toOldHouseShow(oldHouseMsg)">
                             <img ng-src="assets/images/oldHouse/{{oldHouseMsg.imgUrls[0]}}" width="215" height="175" alt="">
@@ -58,7 +57,7 @@
                       <div>
                           <span class="allPrice"><span class="num">{{oldHouseMsg.houseAbout.allPrice}}</span>万</span>
                           <br>
-                          <span class="avgPrice">{{oldHouseMsg.houseAbout.avgPrice}}元/平米</span>
+                          <span class="avgPrice">{{oldHouseMsg.houseAbout.avgPrice | number:2}}  元/平米</span>
 
                       </div>
                   </div>

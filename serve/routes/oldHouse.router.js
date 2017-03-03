@@ -12,7 +12,12 @@ router.get('/oldHouse', function(req, res) {
 		res.json(result);
 	});
 })
-
+router.post('/oldHouse', function(req, res) {
+	OldHouseModel.fetchByType(req.body.type, function(err, result) {
+		if (err) console.log(err);
+		res.json(result);
+	});
+})
 router.post('/oldHouse/upload/msg', function(req, res) {
 	//res.send("上传成功1");
 	console.log(req.param);

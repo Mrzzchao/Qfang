@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, user) {
+  function MainController($scope, user, oldHouseArr) {
       var self = this;
       $scope.oldHouseMes = {
           title: ["二手好房", "为你而选"],
@@ -27,6 +27,28 @@
           iconPos: "icon-pos1",
           iconW: "w-191",
           menuItem: "menu-item1"
+      }
+
+      $scope.cateType = [
+          "地铁房",
+          "红本在手",
+          "住家三房",
+          "刚需小户",
+          "不限购",
+          "优选大宅"
+      ];
+
+      $scope.toOldHouse = function() {
+          oldHouseArr.requestAllData();
+          oldHouseArr.setSearchKey("");
+      }
+      $scope.queryCate = function(type) {
+          console.log(type);
+          oldHouseArr.requestCateData(type);
+      }
+      $scope.searchData = function() {
+          oldHouseArr.setSearchKey($scope.search);
+          oldHouseArr.requestAllData();
       }
   }
 })();

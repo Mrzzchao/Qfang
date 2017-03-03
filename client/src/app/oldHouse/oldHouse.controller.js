@@ -8,6 +8,15 @@
 	/** @ngInject */
 	function OldHouseController($scope, $location, $state, oldHouseArr, oldHouseShow) {
 		var self = this;
+		$scope.search = oldHouseArr.getSearchKey();
+		console.log("search================");
+		console.log($scope.search);
+		$scope.col = 'name';
+		$scope.desc = true;
+		$scope.orderId = 1;
+		$scope.orderIcon = function(flag1, flag2) {
+			return (flag1 && flag2);
+		}
 		$scope.style = {
 			bgColor: "gray",
 			isExist: true,

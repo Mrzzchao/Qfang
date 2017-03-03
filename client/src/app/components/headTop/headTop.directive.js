@@ -16,7 +16,7 @@
 		return directive;
 
 		/** @ngInject */
-		function HeadTopController($scope, $state, $location, user) {
+		function HeadTopController($scope, $state, $location, user, oldHouseArr) {
 			var data = user.getData();
 			$scope.quit = function() {
 				console.log("quit");
@@ -39,7 +39,10 @@
 					break;
 
 			}
-
+			$scope.toOldHouse = function() {
+				oldHouseArr.requestAllData();
+		        oldHouseArr.setSearchKey("");
+			}
 			function hander1() {
 				$scope.isOld = true;
 				$scope.isNew = false;

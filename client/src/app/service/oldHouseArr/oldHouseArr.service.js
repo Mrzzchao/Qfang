@@ -6,11 +6,58 @@
 		.service('oldHouseArr', oldHouseArr);
 
 	/** @ngInject */
-	function oldHouseArr($http, $timeout, $state) {
+	function oldHouseArr($http, $timeout, $state, $location) {
 		var tmp = [];
 		var data = [];
+		var searchKey = "";
+		var routerL = $location.absUrl().split("#")[1];
         var defaultData = [
             {
+                oldHouseId: 1,
+                showKeyword: "你的房子",
+                houseAbout: {
+                    roomC: {
+                        bedR: "2",
+                        livingR: "1",
+                        restR: "1"
+                    },
+                    size: "602",
+                    decoration: "精装修",
+                    born: "1 2 2 1980",
+                    direction: "朝东南",
+                    allPrice: "200"
+                },
+                otherMsg: {
+                    lookTime: "随时预约",
+                    specials: ["红本在手"],
+                    recommend: "好房子"
+                },
+                houseAddress: {
+                    detail: "广东 广州 番禺区 西丽南路228号",
+                    community: "汇景新城",
+                    buildingBlock: "A1",
+                    floors: {
+                        heightType: "高层",
+                        floor: "8"
+                    },
+                    roomN: "304"
+                },
+                owner: {
+                    xingming: "张三",
+                    tel: "18825085447",
+                    sex: "男"
+                },
+                imgUrls: [
+                    "CvtcKlgoBbCASFjmAAFRMLctOFA972.jpg",
+                    "CvtcMlgoA1eARWmwAAFzQ1qDOb8499.jpg",
+                    "CvtcKlgoBbOALTMRAAHw9E4fH98855.jpg",
+                    "CvtcN1goA_WAAAP8AAIM9eRowmY285.jpg",
+                    "CvtcMlgoA06AELuDAAGkfL6NLpk631.jpg",
+                    "CvtcMFgoBbCAWJFjAAFUAu-4iWs400.jpg",
+                    "CvtcMFgoBb2APgR2AAE0tWYPWlQ525.jpg"
+                ]
+            },
+			{
                 oldHouseId: 1,
                 showKeyword: "我的房子",
                 houseAbout: {
@@ -19,11 +66,101 @@
                         livingR: "1",
                         restR: "1"
                     },
-                    size: "122",
+                    size: "112",
                     decoration: "精装修",
                     born: "1 2 2 1980",
                     direction: "朝东南",
-                    allPrice: "300"
+                    allPrice: "900"
+                },
+                otherMsg: {
+                    lookTime: "随时预约",
+                    specials: ["红本在手", "刚需小户"],
+                    recommend: "好房子"
+                },
+                houseAddress: {
+                    detail: "广东 广州 番禺区 西丽南路228号",
+                    community: "汇景新城",
+                    buildingBlock: "H1",
+                    floors: {
+                        heightType: "高层",
+                        floor: "105"
+                    },
+                    roomN: "304"
+                },
+                owner: {
+                    xingming: "张三",
+                    tel: "18825085447",
+                    sex: "男"
+                },
+                imgUrls: [
+                    "CvtcKlgoBbCASFjmAAFRMLctOFA972.jpg",
+                    "CvtcMlgoA1eARWmwAAFzQ1qDOb8499.jpg",
+                    "CvtcKlgoBbOALTMRAAHw9E4fH98855.jpg",
+                    "CvtcN1goA_WAAAP8AAIM9eRowmY285.jpg",
+                    "CvtcMlgoA06AELuDAAGkfL6NLpk631.jpg",
+                    "CvtcMFgoBbCAWJFjAAFUAu-4iWs400.jpg",
+                    "CvtcMFgoBb2APgR2AAE0tWYPWlQ525.jpg"
+                ]
+            },
+			{
+                oldHouseId: 1,
+                showKeyword: "我的房子",
+                houseAbout: {
+                    roomC: {
+                        bedR: "2",
+                        livingR: "1",
+                        restR: "1"
+                    },
+                    size: "125",
+                    decoration: "精装修",
+                    born: "1 2 2 1980",
+                    direction: "朝东南",
+                    allPrice: "503"
+                },
+                otherMsg: {
+                    lookTime: "随时预约",
+                    specials: ["红本在手"],
+                    recommend: "好房子"
+                },
+                houseAddress: {
+                    detail: "广东 广州 番禺区 西丽南路228号",
+                    community: "汇景新城",
+                    buildingBlock: "A1",
+                    floors: {
+                        heightType: "高层",
+                        floor: "8"
+                    },
+                    roomN: "304"
+                },
+                owner: {
+                    xingming: "张三",
+                    tel: "18825085447",
+                    sex: "男"
+                },
+                imgUrls: [
+                    "CvtcKlgoBbCASFjmAAFRMLctOFA972.jpg",
+                    "CvtcMlgoA1eARWmwAAFzQ1qDOb8499.jpg",
+                    "CvtcKlgoBbOALTMRAAHw9E4fH98855.jpg",
+                    "CvtcN1goA_WAAAP8AAIM9eRowmY285.jpg",
+                    "CvtcMlgoA06AELuDAAGkfL6NLpk631.jpg",
+                    "CvtcMFgoBbCAWJFjAAFUAu-4iWs400.jpg",
+                    "CvtcMFgoBb2APgR2AAE0tWYPWlQ525.jpg"
+                ]
+            },
+			{
+                oldHouseId: 1,
+                showKeyword: "我的房子",
+                houseAbout: {
+                    roomC: {
+                        bedR: "2",
+                        livingR: "1",
+                        restR: "1"
+                    },
+                    size: "190",
+                    decoration: "精装修",
+                    born: "1 2 2 1980",
+                    direction: "朝东南",
+                    allPrice: "552"
                 },
                 otherMsg: {
                     lookTime: "随时预约",
@@ -67,10 +204,18 @@
         // data = defaultData.map(function(data) {
         //     return setDatas(data);
         // });
+		switch (routerL) {
+			case "/":
 
-        request();
+				break;
+			case "/oldHouse":
+				requestAll();
+				break;
+			default:
 
-        function request() {
+		}
+
+        function requestAll() {
             $http.get("/oldHouse")
             .success(function(result) {
                 tmp = result;
@@ -97,15 +242,56 @@
                 });
             });
         }
+
+		function requestCate(type) {
+			var str = $.param({type: type});
+			$http.post('/oldHouse', str, {
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
+			})
+			.success(function(result) {
+				tmp = result;
+				data = tmp.map(function(data) {
+					return setDatas($.extend(true,{},data));
+				});
+				if(data.length == 0) {
+					data = defaultData.map(function(data) {
+						return setDatas($.extend(true,{},data));
+					});
+				}
+				$state.go('oldHouse', {}, {
+				  reload: true
+				});
+			})
+			.error(function(err) {
+				console.log(err);
+				console.log(data);
+				data = defaultData.map(function(data) {
+					return setDatas($.extend(true,{},data));
+				});
+				$state.go('oldHouse', {}, {
+				  reload: true
+				});
+			});
+		}
+
 		return {
 			getData: function() {
-                    // request();
+                    // requestAll();
 				return data;
 			},
             setData: function(objArr) {
                 data = $.extend(true, {}, objArr);
             },
-            requestData: request
+			getSearchKey: function() {
+				return searchKey;
+			},
+			setSearchKey: function(key) {
+				searchKey = key;
+			},
+			requestCateData: requestCate,
+            requestAllData: requestAll
 		}
 
 		function setDatas(tmp) {
@@ -142,8 +328,16 @@
             tmp.houseAddress.details = tmp.houseAddress.city + "市" + tmp.houseAddress.area + tmp.houseAddress.road + tmp.houseAddress.community + tmp.houseAddress.buildingBlock + "栋" + tmp.houseAddress.floors.floor + "层" + tmp.houseAddress.roomN + "号单元";
 			tmp.traffic = tmp.houseAddress.community + "的交通便利，出行方便，居家旅行必备小区";
 			tmp.surroundings = tmp.houseAddress.community + "周围有医院，银行，运动场，生活配置十分齐全";
+			tmp.houseAbout.size = toFloat(tmp.houseAbout.size);
+			tmp.houseAbout.allPrice = toFloat(tmp.houseAbout.allPrice);
+			tmp.houseAbout.avgPrice = toFloat(tmp.houseAbout.avgPrice);
+
             console.log(tmp);
             return tmp;
+
+			function toFloat(num) {
+				return parseFloat(num);
+			}
 		}
 	}
 

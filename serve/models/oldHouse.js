@@ -68,6 +68,12 @@ OldHouseSchema.statics = {
         return this
             .findOne({showKeyword: key})
             .exec(cb)
+    },
+    fetchByType: function(type, cb) {
+        return this
+            .find({"otherMsg.specials": type})
+            .sort("meta.updateAt")
+            .exec(cb);
     }
 
 }

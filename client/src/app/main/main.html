@@ -18,11 +18,11 @@
           <div class="row search-body">
             <div class="col-md-10 no-r">
               <div class="input-group-lg">
-                <input type="text" class="form-control" placeholder="请输入房源特征、房型、地址或小区名...">
+                <input type="text" class="form-control" placeholder="请输入房源特征、房型、地址或小区名..." ng-keyup="$event.keyCode == 13 && searchData()" ng-model="search">
               </div>
             </div>
             <div class="col-md-2 no-l">
-              <a href="#">搜 索</a>
+              <a ng-click="searchData()">搜 索</a>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
     <div class="col-md-10 col-md-offset-1">
       <div class="row">
         <div class="col-md-4 entrances-item entrances-old text-center">
-          <a ui-sref="oldHouse">
+          <a ng-click="toOldHouse()">
             <div class="icon-box">
               <span class="icon"></span>
             </div>
@@ -45,7 +45,7 @@
           <p>海量真房源</p>
         </div>
         <div class="col-md-4 entrances-item entrances-new text-center">
-          <a ui-sref="oldHouse">
+          <a ng-click="toOldHouse()">
             <div class="icon-box">
               <span class="icon"></span>
             </div>
@@ -74,17 +74,17 @@
         <div class="row">
 
           <div class="col-md-12 pic-box">
-            <a href="#" class="wrapper">
+            <a ng-click="queryCate(cateType[0])" class="wrapper">
               <img src="assets/images/home/oldHouse/ditiefang.jpg" alt="">
-              <div class="title">地铁房</div>
+              <div class="title">{{cateType[0]}}</div>
             </a>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 pic-box">
-            <a href="#" class="wrapper">
+            <a ng-click="queryCate(cateType[1])" class="wrapper">
               <img src="assets/images/home/oldHouse/hongbenzaishou.jpg" alt="">
-              <div class="title">红本在手</div>
+              <div class="title">{{cateType[1]}}</div>
 
             </a>
           </div>
@@ -93,9 +93,9 @@
       <div class="col-md-3">
         <div class="row">
           <div class="col-md-12 pic-box">
-            <a href="#" class="wrapper">
+            <a ng-click="queryCate(cateType[2])" class="wrapper">
               <img src="assets/images/home/oldHouse/zhujiasanfang.jpg" alt="">
-              <div class="title">住家三房</div>
+              <div class="title">{{cateType[2]}}</div>
             </a>
           </div>
         </div>
@@ -103,9 +103,9 @@
       <div class="col-md-3">
         <div class="row">
           <div class="col-md-12 pic-box">
-            <a href="#" class="wrapper">
+            <a ng-click="queryCate(cateType[3])" class="wrapper">
               <img src="assets/images/home/oldHouse/gangxuxiaohu.jpg" alt="">
-              <div class="title">刚需小户</div>
+              <div class="title">{{cateType[3]}}</div>
 
             </a>
           </div>
@@ -114,18 +114,18 @@
       <div class="col-md-3">
         <div class="row">
           <div class="col-md-12 pic-box">
-            <a href="#" class="wrapper">
+            <a ng-click="queryCate(cateType[4])" class="wrapper">
               <img src="assets/images/home/oldHouse/buxiangou.jpg" alt="">
-              <div class="title">不限购</div>
+              <div class="title">{{cateType[4]}}</div>
 
             </a>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 pic-box">
-            <a href="#" class="wrapper">
+            <a ng-click="queryCate(cateType[5])" class="wrapper">
               <img src="assets/images/home/oldHouse/youxuandazhai.jpg" alt="">
-              <div class="title">优选大宅</div>
+              <div class="title">{{cateType[5]}}</div>
 
             </a>
           </div>
