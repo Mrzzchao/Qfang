@@ -8,6 +8,8 @@
   /** @ngInject */
   function MainController($scope, user, oldHouseArr) {
       var self = this;
+      var count = 3;
+      $scope.isLogin = false;
       $scope.oldHouseMes = {
           title: ["二手好房", "为你而选"],
           caption: ["特色精选", "选择自己喜欢的类型"],
@@ -37,6 +39,35 @@
           "不限购",
           "优选大宅"
       ];
+
+      $scope.toSale = function() {
+          if(status == 0) {
+              (function() {
+                  $scope.toUrl = "user.login";
+                  $scope.msg = '请先登录在进行业务委托, ' + 　count + '秒后自动跳转登录页面';
+                  $scope.toShow = true;
+                  $('#mymodal').modal('show');
+                  $scope.timer = $interval(function() {
+                      $scope.msg = '请先登录在进行业务委托, ' + 　count + '秒后自动跳转登录页面';
+                      if (count === 0) {
+                          $interval.cancel($scope.timer);
+
+                      }
+                      count--;
+                      if (count === -1) {
+                          $timeout(function() {
+                              $state.go('user.login');
+                          }, 1000);
+                          $('#mymodal').modal('hide');
+                      }
+                  }, 1000);
+              })();
+          }
+          else {
+              console.log("=============1");
+              $state.go("sale.step1");
+          }
+      }
 
       $scope.toOldHouse = function() {
           oldHouseArr.requestAllData();

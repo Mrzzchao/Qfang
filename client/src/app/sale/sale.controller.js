@@ -8,6 +8,10 @@
 
 	/** @ngInject */
 	function SaleController($scope, $location, $http, $interval, $state, $timeout, pattern, user, extend, oldHouse) {
+		var status = user.getStatus();
+		if(status == 0) {
+			$state.go("home");
+		}
 		$scope.formData = new FormData();
 		$scope.oldHouseMsg = oldHouse.getData();
 		initAddressSelector($scope);

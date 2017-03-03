@@ -11,10 +11,9 @@
 		var key = $location.absUrl().split(".")[1];
 		$scope.isSelected = true;
 		$scope.login = user.getData();
+		$scope.isLogin = true;
 		$scope.remFlag = !!$scope.login.remFlag;
 		$scope.pattern = pattern; // 验证
-		$scope.toUrl = "home";
-		$scope.msg = "";
 		var baseUrl = '/user';
 		var isMe = false; // 判断服务器是否存在
 		var count = 3; // 倒计时

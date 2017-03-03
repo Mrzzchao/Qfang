@@ -16,14 +16,55 @@
 		return directive;
 
 		/** @ngInject */
-		function HeadTopController($scope, $state, $location, user, oldHouseArr) {
+		function HeadTopController($scope, $state, $location, $timeout, $interval, user, oldHouseArr) {
 			var data = user.getData();
+			var status = user.getStatus();
+			var str = $location.absUrl().split(".")[1];
+			var count = 3;
+			$scope.msg = '';
+			$scope.toShow = false;
+			$scope.toUrl = "";
 			$scope.quit = function() {
 				console.log("quit");
 				$scope.userMsg = '<span role="presentation" class="dropdown menu-item1 menu-item-login" ng-show="style.isExist"><a ui-sref="user.login" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录</a></span> <span class="line" ng-show="style.isExist"></span> <span role="presentation" class="dropdown menu-item1 menu-item-register" ng-show="style.isExist"><a ui-sref="user.register" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">注册</a></span>';
 				user.setStatu(0);
 			}
+			$scope.toSale = function() {
+				if(status == 0) {
+					if(str !== "login") {
+						(function() {
+							$scope.toUrl = "user.login";
+							$scope.msg = '请先登录再进行业务委托, ' + 　count + '秒后自动跳转登录页面';
+							$scope.toShow = true;
+							$('#mymodal').modal('show');
+							$scope.timer = $interval(function() {
+								$scope.msg = '请先登录再进行业务委托, ' + 　count + '秒后自动跳转登录页面';
+								if (count === 0) {
+									$interval.cancel($scope.timer);
 
+								}
+								count--;
+								if (count === -1) {
+									$timeout(function() {
+										$state.go('user.login');
+									}, 1000);
+									$('#mymodal').modal('hide');
+								}
+							}, 1000);
+						})();
+
+					}
+					else {
+						$scope.msg = '请先登录再进行业务委托';
+						$scope.toShow = false;
+						$('#mymodal').modal('show');
+					}
+				}
+				else {
+					console.log("=============1");
+					$state.go("sale.step1");
+				}
+			}
 			var key = $location.absUrl().split("#")[1]; // 确定路径的关键字
 			switch (key) {
 				case "/oldHouse":

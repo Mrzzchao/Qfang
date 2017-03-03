@@ -1,6 +1,13 @@
 <div class="oldHouseShow-div">
   <head-top></head-top>
 
+  <div class="enlargePic-div" close-pic>
+      <div class="mask"></div>
+      <div class="pic-box">
+          <img class="bigPic" src="http://yun50.qfangimg.com/group1/800x600/M00/65/93/CpmSzVVmyF-AXu4hAAB50B4DdZ0858.jpg"></img>
+      </div>
+
+  </div>
   <div class="oldHouseShow-content">
     <div class="container">
       <h1 class="title1">{{oldHouseMsg.showKeyword}}</h1>
@@ -144,7 +151,7 @@
             <h1 class="row title">房源图片</h1>
 
             <div class="pic-content">
-                <img ng-src="assets/images/oldHouse/{{imgUrl}}" alt="" ng-repeat="imgUrl in oldHouseMsg.imgUrls" height="350">
+                <img ng-src="assets/images/oldHouse/{{imgUrl}}" enlarge-pic alt="" ng-repeat="imgUrl in oldHouseMsg.imgUrls" height="350">
             </div>
 
             <div class="show_more"><a ng-click="showMore()">显示更多图片</a></div>

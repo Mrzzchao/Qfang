@@ -6,7 +6,7 @@
     .directive('carouselBox', carouselBox);
 
   /** @ngInject */
-  function carouselBox() {
+  function carouselBox($compile) {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/carouselBox/carouselBox.tpl.html',
@@ -26,14 +26,15 @@
         console.log(scope.imgUrls);
         for(var i = 0, len = scope.imgUrls.length; i < len; i++) {
             new_li = $("<li></li>");
-            new_li.html("<img src='assets/images/oldHouse/" + scope.imgUrls[i] + "' width='130' height='98'><div class='bun_bg'></div>");
-            $(".small_list ul").append(new_li);
+
+            new_li.html("<img src='assets/images/oldHouse/" + scope.imgUrls[i] + "' width='130' enlarge-pic height='98'><div class='bun_bg'></div>");
+            $(".small_list ul").append($compile(new_li)(scope));
         }
 
         for(var i = 0, len = scope.imgUrls.length; i < len; i++) {
             new_li = $("<li></li>");
-            new_li.html("<img src='assets/images/oldHouse/" + scope.imgUrls[i] + "' width='690' height='517'>");
-            $(".large_box ul").append(new_li);
+            new_li.html("<img src='assets/images/oldHouse/" + scope.imgUrls[i] + "'  width='690' enlarge-pic height='517'>");
+            $(".large_box ul").append($compile(new_li)(scope));
         }
         (function($){
             //默认参数

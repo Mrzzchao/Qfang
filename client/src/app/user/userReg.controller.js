@@ -13,8 +13,7 @@
 		$scope.test2 = "";
 		$scope.isSelected = false;
 		$scope.pattern = pattern; // 验证
-		$scope.toUrl = "user.login";
-		$scope.msg = "";
+		$scope.isLogin = false;
 		$scope.register = {
 			username: "",
 			password: ""

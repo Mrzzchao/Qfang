@@ -7,9 +7,9 @@
 
 	/** @ngInject */
 	function UserController($scope) {
-		$scope.msg = "";
-		$scope.toShow = false;
-		$scope.toUrl = "";
+		// $scope.msg = "";
+		// $scope.toShow = false;
+		// $scope.toUrl = "";
 		$scope.style = {
 			bgColor: "gray",
 			isExist: false,
