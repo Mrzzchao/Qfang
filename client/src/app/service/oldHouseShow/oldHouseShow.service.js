@@ -6,10 +6,11 @@
     .service('oldHouseShow', oldHouseShow);
 
   /** @ngInject */
-  function oldHouseShow() {
+  function oldHouseShow($http, user) {
       var oldHouseId = 1;
       var data;
       var defaultData = {
+          saveStatu: "收藏房源",
           id: "GZFY059902835",
           showKeyword: "配套齐全，西丽广场，西丽小学，西丽公园，番禺华侨城二手房三室",
           houseAbout: {
@@ -62,6 +63,24 @@
               console.log(obj);
               data = $.extend(true, {}, obj);
               console.log(data);
+          },
+          save: function(id) {
+              var userId = user.getUserId();
+              var str = $.param({
+                  houseId: id,
+                  userId: userId
+              });
+              $http.post('/houseSave/add', str, {
+                  headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded'
+                  }
+              })
+              .success(function(data) {
+                  data.saveStatu = data.result;
+              })
+              .error(function(err) {
+                  data.saveStatu = err;
+              });
           }
       }
   }

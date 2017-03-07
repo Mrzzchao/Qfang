@@ -5,6 +5,8 @@ var db = require('../config/c_mongo.js');
 
 autoIncrement.initialize(db);
 var OldHouseSchema = new mongoose.Schema({
+    userId: [String],
+    saveUserId: [String],
     oldHouseId: Number,
     showKeyword: String,
     houseAbout: {
@@ -72,6 +74,18 @@ OldHouseSchema.statics = {
     fetchByType: function(type, cb) {
         return this
             .find({"otherMsg.specials": type})
+            .sort("meta.updateAt")
+            .exec(cb);
+    },
+    fetchRecord: function(userId, cb) {
+        return this
+            .find({"userId": userId})
+            .sort("meta.updateAt")
+            .exec(cb);
+    },
+    fetchSave: function(userId, cb) {
+        return this
+            .find({"saveUserId": userId})
             .sort("meta.updateAt")
             .exec(cb);
     }

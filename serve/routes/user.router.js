@@ -86,7 +86,9 @@ function loginReq(req, res) {
 				return;
 			}
 			if (UserModel.isMatchFlag) {
-				result = "登录成功";
+				result = {
+					userId: UserModel.resId
+				};
 			} else {
 				result = {
 					err: "密码错误"

@@ -11,6 +11,7 @@
   <div class="oldHouseShow-content">
     <div class="container">
       <h1 class="title1">{{oldHouseMsg.showKeyword}}</h1>
+       <span class="save pull-right" ng-click="houseSave(oldHouseMsg.oldHouseId)"><span class="icons icon-record"></span><span class="word">{{oldHouseMsg.saveStatu}}</span></span>
     </div>
     <div class="container-fluid house-info-wrapper">
      <img ng-src="assets/images/oldHouse/{{oldHouseMsg.imgUrls[0]}}" class="bg_blur_img">
@@ -160,4 +161,5 @@
   </div>
 
   <footer-nav></footer-nav>
+  <tip-box></tip-box>
 </div>

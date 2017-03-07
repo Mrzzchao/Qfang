@@ -30,7 +30,7 @@
 		}
 		$scope.style = {
 			bgColor: "gray",
-			isExist: true,
+			isExist: false,
 			iconPos: "icon-pos2",
 			iconW: "w-185",
 			menuItem: "menu-item3"
@@ -66,7 +66,9 @@
 			(function() {
 				var tmp = {};
 				var dataStr = '';
+
 				extend(tmp, $scope.oldHouseMsg);
+				tmp.userId = user.getUserId();
 				dataStr = $.param(tmp);
 				$http.post(baseUrl + '/upload/msg', dataStr, {
 					headers: {

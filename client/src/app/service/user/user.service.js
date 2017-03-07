@@ -8,10 +8,12 @@
   /** @ngInject */
   function user() {
       var data = {
+		  avatar: "no-userphoto.gif",
           username: '',
           password: '',
           status: 0,     // 0 未登录， 1 已登录
-          remFlag: false
+          remFlag: false,
+          userId: ""
       }
 
       if(window.localStorage) {
@@ -24,13 +26,14 @@
           getData: function() {
               return data;
           },
-          setUser: function(username, password, remFlag) {
+          setUser: function(username, password, remFlag, userId) {
               console.log(username);
               console.log(password);
               localStorage.username = username;
               localStorage.remFlag = remFlag;
               data.username = username;
               data.remFlag = remFlag;
+              data.userId = userId;
               if (remFlag) {
                   localStorage.password = password;
                   data.password = password;
@@ -45,6 +48,9 @@
           },
           getStatus: function() {
               return data.status;
+          },
+          getUserId: function() {
+              return data.userId;
           },
           autoSetUser: function(username, password) {
               data.username = username;

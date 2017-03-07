@@ -6,13 +6,15 @@
 		.service('oldHouseArr', oldHouseArr);
 
 	/** @ngInject */
-	function oldHouseArr($http, $timeout, $state, $location) {
+	function oldHouseArr($http, $timeout, $state, $location, user) {
 		var tmp = [];
 		var data = [];
+		var data2 = [];
 		var searchKey = "";
 		var routerL = $location.absUrl().split("#")[1];
         var defaultData = [
             {
+				saveStatu: "已收藏",
                 oldHouseId: 1,
                 showKeyword: "你的房子",
                 houseAbout: {
@@ -58,7 +60,8 @@
                 ]
             },
 			{
-                oldHouseId: 1,
+				saveStatu: "已收藏",
+                oldHouseId: 2,
                 showKeyword: "我的房子",
                 houseAbout: {
                     roomC: {
@@ -103,7 +106,8 @@
                 ]
             },
 			{
-                oldHouseId: 1,
+				saveStatu: "已收藏",
+                oldHouseId: 3,
                 showKeyword: "我的房子",
                 houseAbout: {
                     roomC: {
@@ -148,7 +152,8 @@
                 ]
             },
 			{
-                oldHouseId: 1,
+				saveStatu: "已收藏",
+                oldHouseId: 4,
                 showKeyword: "我的房子",
                 houseAbout: {
                     roomC: {
@@ -211,8 +216,82 @@
 			case "/oldHouse":
 				requestAll();
 				break;
+			case "/userManage/userManage.saleRecord":
+				requestRecord();
+				break;
+			case "/userManage/userManage.save":
+				requestSave();
+				break;
 			default:
 
+		}
+
+		function requestSave() {
+			var id = user.getUserId();
+			var str = $.param({userId: id});
+			$http.post('/houseSave', str, {
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
+			})
+			.success(function(result) {
+				tmp = result;
+				data2 = tmp.map(function(data) {
+					return setDatas($.extend(true,{},data));
+				});
+				// if(data2.length == 0) {
+				// 	data2 = defaultData.map(function(data) {
+				// 		return setDatas($.extend(true,{},data));
+				// 	});
+				// }
+				$state.go('userManage.save', {}, {
+				  reload: true
+				});
+			})
+			.error(function(err) {
+				console.log(err);
+				console.log(data);
+				data2 = defaultData.map(function(data) {
+					return setDatas($.extend(true,{},data));
+				});
+				$state.go('userManage.save', {}, {
+				  reload: true
+				});
+			});
+		}
+
+		function requestRecord() {
+			var id = user.getUserId();
+			var str = $.param({userId: id});
+			$http.post('/saleRecord', str, {
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
+			})
+			.success(function(result) {
+				tmp = result;
+				data = tmp.map(function(data) {
+					return setDatas($.extend(true,{},data));
+				});
+				// if(data.length == 0) {
+				// 	data = defaultData.map(function(data) {
+				// 		return setDatas($.extend(true,{},data));
+				// 	});
+				// }
+				$state.go('userManage.saleRecord', {}, {
+				  reload: true
+				});
+			})
+			.error(function(err) {
+				console.log(err);
+				console.log(data);
+				data = defaultData.map(function(data) {
+					return setDatas($.extend(true,{},data));
+				});
+				$state.go('userManage.saleRecord', {}, {
+				  reload: true
+				});
+			});
 		}
 
         function requestAll() {
@@ -281,6 +360,9 @@
                     // requestAll();
 				return data;
 			},
+			getData2: function() {
+				return data2;
+			},
             setData: function(objArr) {
                 data = $.extend(true, {}, objArr);
             },
@@ -290,8 +372,15 @@
 			setSearchKey: function(key) {
 				searchKey = key;
 			},
+			getDefaultData: function() {
+				return defaultData.map(function(item) {
+					return setDatas($.extend(true, {}, item));
+				});
+			},
 			requestCateData: requestCate,
-            requestAllData: requestAll
+            requestAllData: requestAll,
+			requestRecordData: requestRecord,
+			requestSaveData: requestSave
 		}
 
 		function setDatas(tmp) {

@@ -77,6 +77,24 @@
         controller: 'SaleController',
         controllerAs: 'SaleCtrl'
       })
+      .state('userManage', {
+        url: '/userManage',
+        templateUrl: 'app/userManage/userManage.html',
+        controller: 'UserManage',
+        controllerAs: 'UserManageCtrl'
+      })
+      .state('userManage.saleRecord', {
+        url: '/userManage.saleRecord',
+        templateUrl: 'app/userManage/userManage.saleRecord.html',
+        controller: 'UserManage',
+        controllerAs: 'UserManageCtrl'
+      })
+      .state('userManage.save', {
+        url: '/userManage.save',
+        templateUrl: 'app/userManage/userManage.save.html',
+        controller: 'UserManage',
+        controllerAs: 'UserManageCtrl'
+      })
     $urlRouterProvider.otherwise('/');
   }
 

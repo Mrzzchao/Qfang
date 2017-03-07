@@ -28,7 +28,52 @@ router.post('/oldHouse/upload/img', function(req, res) {
 	// res.send("上传成功2");
 	// console.log(req.body);
 })
-
+router.post('/saleRecord', function(req, res) {
+	OldHouseModel.fetchRecord(req.body.userId, function(err, result) {
+		if (err) console.log(err);
+		res.json(result);
+	});
+})
+router.post('/houseSave', function(req, res) {
+	OldHouseModel.fetchSave(req.body.userId, function(err, result) {
+		if (err) console.log(err);
+		res.json(result);
+	});
+})
+router.post('/houseSave/add', function(req, res) {
+	OldHouseModel.update({oldHouseId:req.body.houseId},{$addToSet:{saveUserId: req.body.userId}},function(err){
+		if (err) return console.error(err);
+		res.send({result:"已收藏"});
+	});
+})
+router.post('/houseSave/removeOne', function(req, res) {
+	OldHouseModel.update({oldHouseId:req.body.houseId}, {$pull: {saveUserId: req.body.userId}},function(err, doc) {
+		if (err) return console.error(err);
+		res.send({result:"已删除"});
+	});
+})
+router.post('/houseSave/removeAll', function(req, res) {
+	OldHouseModel.find({"saveUserId": req.body.userId}, function(err, docs) {
+		if(err) {
+			console.log(err);
+			return;
+		}
+		if(docs) {
+			docs.forEach(function(elem) {
+				var index = elem._doc.saveUserId.indexOf(req.body.userId);
+				elem._doc.saveUserId.splice(index, 1);
+				elem.save();
+			})
+			console.log("delete success!");
+			return;
+		}
+	})
+	// OldHouseModel.update({oldHouseId:req.body.houseId}, {$pull: {saveUserId: req.body.userId}},{multi: true}, function(err, doc) {
+	// 	if (err) return console.error(err);
+	// 	res.send({result:"已删除"});
+	// });
+	res.send({result:"已删除全部"});
+})
 
 function oldHouseMsgReq(req, res) {
 	var data = {
@@ -107,5 +152,9 @@ function oldHouseImgReq(req, res) {
   });
 
 	res.locals.success = '上传成功';
+}
+
+function saleRecordReq(req, res) {
+
 }
 module.exports = router;

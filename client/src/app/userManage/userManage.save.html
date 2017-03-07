@@ -1,0 +1,54 @@
+<div class="title">
+    已收藏房源
+    <a ng-click="saveDeleteAll()" class=" pull-right"><span class="delete"><span class="icon-user icon-delete"></span> 删除所有收藏记录</span></a>
+</div>
+
+<div class="right-bottom">
+    <div class="row house-item" ng-repeat="oldHouseMsg in oldHouseSaveArr" id="item{{oldHouseMsg.oldHouseId}}">
+        <div class="col-md-3">
+            <a  ng-click="toOldHouseShow(oldHouseMsg)">
+                <img ng-src="assets/images/oldHouse/{{oldHouseMsg.imgUrls[0]}}" width="160" height="130" alt="">
+            </a>
+
+        </div>
+      <div class="col-md-7 house-info">
+          <div class="row house-title">
+            <a ng-click="toOldHouseShow(oldHouseMsg)">{{oldHouseMsg.showKeyword}}</a>
+            <div class="deleteOne pull-right"><a ng-click="saveDeleteOne(oldHouseMsg.oldHouseId)"><span class="delete"><span class="icon-user icon-delete"></span> 删除记录</span></a></div>
+          </div>
+          <div class="row">
+            <span>{{oldHouseMsg.houseAbout.roomC}}</span>
+            <span class="blank"></span><span class="v-line"></span><span class="blank">
+            <span>{{oldHouseMsg.houseAbout.size}}平米</span>
+            <span class="blank"></span><span class="v-line"></span><span class="blank">
+            <span>{{oldHouseMsg.houseAbout.decoration}}</span>
+            <span class="blank"></span><span class="v-line"></span><span class="blank">
+            <span>{{oldHouseMsg.houseAddress.floor}}</span>
+            <span class="blank"></span><span class="v-line"></span><span class="blank">
+            <span>{{oldHouseMsg.houseAbout.born}}年建</span>
+          </div>
+          <div class="row">
+            <span>{{oldHouseMsg.houseAddress.community}}</span>
+            <span>[{{oldHouseMsg.houseAddress.area}} <span class="blank"></span>{{oldHouseMsg.houseAddress.road}}]</span>
+            <span class="blank"></span>
+            <span>{{oldHouseMsg.houseAddress.detail}}</span>
+          </div>
+
+          <div class="row who">
+            {{oldHouseMsg.owner.xingming}}
+          </div>
+
+          <div class="row">
+            <span class="special" ng-repeat="s_tag in oldHouseMsg.otherMsg.specials">{{s_tag}}</span>
+          </div>
+      </div>
+
+      <div class="col-md-2 price">
+          <div>
+              <span class="allPrice"><span class="num">{{oldHouseMsg.houseAbout.allPrice}}</span>万</span>
+              <br>
+              <span class="avgPrice">{{oldHouseMsg.houseAbout.avgPrice | number:2}}  元/平米</span>
+          </div>
+      </div>
+    </div>
+</div>

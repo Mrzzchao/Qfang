@@ -1,0 +1,33 @@
+<head-top></head-top>
+<div class="userManage-div">
+    <div class="wrapper">
+        <div class="container">
+            <div class="col-md-2 left">
+                <div class="user-box">
+                    <a href="#">
+                        <img ng-src="assets/images/userManage/{{userManageMsg.user.avatar}}" alt="">
+                    </a>
+                    <span class="name">{{userManageMsg.user.username}}</span>
+                </div>
+
+                <div class="tabs-box">
+                    <!-- <div class="row" ng-class="{on:tabsId==1}"><a href="#">首<span class="space"></span>页</a></div> -->
+                    <div class="row" ng-class="{on:tabsId==1}"><a  ng-click="toHouseSave()">房源收藏</a></div>
+                    <div class="row" ng-class="{on:tabsId==2}"><a  ng-click="toHouseRecord()">委托记录</a></div>
+                </div>
+            </div>
+            <div class="col-md-10 right">
+                <div class="welcomes">
+                    <span>
+                        欢迎来到Q房网
+                    </span>
+                    <span class="icons icon-user pull-right quit" ng-click="quitt()"></span>
+                </div>
+                <div class="bg-line"></div>
+
+                <div class="right-body" ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer-nav></footer-nav>

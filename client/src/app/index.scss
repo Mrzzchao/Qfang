@@ -58,7 +58,7 @@ label {
 }
 a {
     cursor: pointer;
-    &:link, &:hover, &:focus {
+    &:link, &:hover, &:focus, &:active {
         background-color: transparent !important;
     }
 
@@ -93,6 +93,10 @@ button[disabled], html input[disabled]  {
     line-height: 0;
     overflow: hidden;
     background: url(../assets/images/common/icons-entrust.gif) no-repeat;
+}
+.space {
+    display: inline-block;
+    width: 2em;
 }
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject

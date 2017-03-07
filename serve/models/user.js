@@ -60,13 +60,16 @@ UserSchema.statics = {
         var password = user.password;
         this.findOne({username: username}, function(err, result) {
             if(err) console.log(err);
-            if(result.password == password)
+            if(result.password == password) {
                 self.isMatchFlag = true;
+                self.resId = result.userId;
+            }
             else
                 self.isMatchFlag = false;
         }).exec(cb);
     },
     isMatchFlag: false,
-    isExistFlag: false
+    isExistFlag: false,
+    resId: 1
 }
 module.exports = mongoose.model("UserModel", UserSchema);

@@ -1,0 +1,13 @@
+<div class="title">
+    已委托房源
+</div>
+<div class="right-bottom">
+    <div class="sale-item row" ng-repeat="oldHouseMsg in oldHouseRecordArr">
+        <img ng-src="/assets/images/oldHouse/{{oldHouseMsg.imgUrls[0]}}" alt="" width="147" height="110">
+        <div class="text">
+            <span class="house-info">{{oldHouseMsg.showKeyword}}</span>
+            <div class="allPrice" >目前售价：<span class="num">{{oldHouseMsg.houseAbout.allPrice}}</span><span class="word">万元</span></div>
+        </div>
+    </div>
+
+</div>
