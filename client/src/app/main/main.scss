@@ -102,6 +102,9 @@
 
     }
     .entrances-item {
+        .icon-box {
+            transition: color .3s, background-position .3s;
+        }
         a {
             font-size: 20px;
             line-height: 36px;
@@ -228,9 +231,12 @@
                 right: 0;
                 bottom: 0;
                 margin: auto;
-                width: 240px;
+                width: 340px;
                 height: 130px;
                 background-color: rgba(0,0,0,0.8);
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
 
                 span {
                     display: block;
@@ -263,8 +269,8 @@
                 overflow: hidden;
             }
             img {
-                // width: 275px;
-                // height: 192px;
+                width: 275px;
+                height: 205px;
             }
 
             .over {
@@ -290,7 +296,7 @@
                 padding: 0 20px;
                 font-size: 14px;
                 color: #fff;
-                    background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.8));
+                background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.9));
 
                 .title {
                     line-height: 56px;

@@ -10,11 +10,12 @@
 		var tmp = [];
 		var data = [];
 		var data2 = [];
+		var data3 = [];
 		var searchKey = "";
 		var routerL = $location.absUrl().split("#")[1];
         var defaultData = [
             {
-				saveStatu: "已收藏",
+				saveUserId: ["4"],
                 oldHouseId: 1,
                 showKeyword: "你的房子",
                 houseAbout: {
@@ -60,7 +61,7 @@
                 ]
             },
 			{
-				saveStatu: "已收藏",
+				saveUserId: ["4"],
                 oldHouseId: 2,
                 showKeyword: "我的房子",
                 houseAbout: {
@@ -106,7 +107,7 @@
                 ]
             },
 			{
-				saveStatu: "已收藏",
+				saveUserId: ["4"],
                 oldHouseId: 3,
                 showKeyword: "我的房子",
                 houseAbout: {
@@ -152,7 +153,7 @@
                 ]
             },
 			{
-				saveStatu: "已收藏",
+				saveUserId: ["4"],
                 oldHouseId: 4,
                 showKeyword: "我的房子",
                 houseAbout: {
@@ -211,7 +212,7 @@
         // });
 		switch (routerL) {
 			case "/":
-
+				requestNew();
 				break;
 			case "/oldHouse":
 				requestAll();
@@ -224,6 +225,34 @@
 				break;
 			default:
 
+		}
+
+		function requestNew() {
+			$http.get("/oldHouse/new")
+			.success(function(result) {
+				tmp = result;
+				data3 = tmp.map(function(data) {
+					return setDatas($.extend(true,{},data));
+				});
+				if(data3.length == 0) {
+					data3 = defaultData.map(function(data) {
+						return setDatas($.extend(true,{},data));
+					});
+				}
+				$state.go('home', {}, {
+				  reload: true
+				});
+			})
+			.error(function(err) {
+				console.log(err);
+				console.log(data);
+				data = defaultData.map(function(data) {
+					return setDatas($.extend(true,{},data));
+				});
+				$state.go('home', {}, {
+				  reload: true
+				});
+			});
 		}
 
 		function requestSave() {
@@ -363,6 +392,9 @@
 			getData2: function() {
 				return data2;
 			},
+			getData3: function() {
+				return data3;
+			},
             setData: function(objArr) {
                 data = $.extend(true, {}, objArr);
             },
@@ -380,7 +412,8 @@
 			requestCateData: requestCate,
             requestAllData: requestAll,
 			requestRecordData: requestRecord,
-			requestSaveData: requestSave
+			requestSaveData: requestSave,
+			requestNewData: requestNew
 		}
 
 		function setDatas(tmp) {

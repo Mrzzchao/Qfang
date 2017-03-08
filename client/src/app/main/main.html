@@ -10,10 +10,7 @@
         <div class="col-md-8 col-md-offset-2">
           <div class="row">
             <div class="col-md-2 search-tab on">
-              <a href="#">二手房</a>
-            </div>
-            <div class="col-md-2 search-tab">
-              <a href="#">新房</a>
+              <a>二手房</a>
             </div>
           </div>
           <div class="row search-body">
@@ -36,7 +33,7 @@
   <div class="row entrances">
     <div class="col-md-10 col-md-offset-1">
       <div class="row">
-        <div class="col-md-4 entrances-item entrances-old text-center">
+        <div class="col-md-6 entrances-item entrances-old text-center">
           <a ng-click="toOldHouse()">
             <div class="icon-box">
               <span class="icon"></span>
@@ -45,7 +42,7 @@
           </a>
           <p>海量真房源</p>
         </div>
-        <div class="col-md-4 entrances-item entrances-new text-center">
+        <!-- <div class="col-md-4 entrances-item entrances-new text-center">
           <a ng-click="toOldHouse()">
             <div class="icon-box">
               <span class="icon"></span>
@@ -53,8 +50,8 @@
             <p>找新房</p>
           </a>
           <p>优质新盘，团购特惠</p>
-        </div>
-        <div class="col-md-4 entrances-item entrances-sale text-center">
+        </div> -->
+        <div class="col-md-6 entrances-item entrances-sale text-center">
           <a ng-click="toSale()">
             <div class="icon-box">
               <span class="icon"></span>
@@ -139,28 +136,28 @@
     <make-head url="oldHouse" t1={{newHouseMes.title[0]}} t2={{newHouseMes.title[1]}} c1={{newHouseMes.caption[0]}} c2={{newHouseMes.caption[1]}} m={{newHouseMes.more}}></make-head>
 
     <div class="pic-content">
-      <div class="left">
-        <a href="#" class="wrapper">
-          <img src="assets/images/home/newHouse/wankeyunqiang.jpg" alt="">
+      <div class="left" ng-click="toOldHouseShow(oldHouseNewArr[0])">
+        <a class="wrapper">
+          <img src="assets/images/oldHouse/{{oldHouseNewArr[0].imgUrls[0]}}" alt="">
         </a>
 
         <div class="mes">
-          <span>万科云城米酷</span>
-          <b>返现8000送不停</b>
+          <span>{{oldHouseNewArr[0].houseAddress.community}} {{oldHouseNewArr[0].houseAddress.floor}}</span>
+          <b>{{oldHouseNewArr[0].houseAbout.decoration}} {{oldHouseNewArr[0].houseAbout.direction}}</b>
         </div>
       </div>
 
       <div class="mid">
-        <div class="pic-box">
-          <a href="#" class="wrapper">
-            <img src="assets/images/home/newHouse/shidaichangdao.jpg" alt="">
+        <div class="pic-box" ng-click="toOldHouseShow(oldHouseNewArr[1])">
+          <a class="wrapper">
+            <img src="assets/images/oldHouse/{{oldHouseNewArr[1].imgUrls[0]}}" alt="">
           </a>
 
           <div class="over"></div>
           <div class="toTop">
             <div class="title">
-              <b>时代长岛</b>
-              <span>最高享97折</span>
+              <b>{{oldHouseNewArr[1].houseAddress.community}}</b>
+              <span>{{oldHouseNewArr[1].houseAbout.allPrice}}万元</span>
             </div>
             <div class="content">
               <span>区域：南沙
@@ -175,16 +172,16 @@
           </div>
 
         </div>
-        <div class="pic-box">
-          <a href="#" class="wrapper">
-            <img src="assets/images/home/newHouse/wankehui.jpg" alt="">
+        <div class="pic-box" ng-click="toOldHouseShow(oldHouseNewArr[2])">
+          <a class="wrapper">
+            <img src="assets/images/oldHouse/{{oldHouseNewArr[2].imgUrls[0]}}" alt="">
           </a>
           <div class="over"></div>
           <div class="toTop">
             <div class="title">
               <!--<em>万科峯汇</em>-->
-              <b>万科峯汇</b>
-              <span>返现8000送不停</span>
+              <b>{{oldHouseNewArr[2].houseAddress.community}}</b>
+              <span>{{oldHouseNewArr[2].houseAbout.allPrice}}万元</span>
             </div>
             <div class="content">
               <span>区域：前进路
@@ -201,17 +198,17 @@
       </div>
 
       <div class="right">
-        <div class="pic-box">
-          <a href="#" class="wrapper">
-            <img src="assets/images/home/newHouse/jinshihuayuan.jpg" alt="">
+        <div class="pic-box" ng-click="toOldHouseShow(oldHouseNewArr[3])">
+          <a class="wrapper">
+            <img src="assets/images/oldHouse/{{oldHouseNewArr[3].imgUrls[0]}}" alt="">
           </a>
           <div class="over"></div>
 
           <div class="toTop">
             <div class="title">
               <!--<em>金时花园</em>-->
-              <b>金时花园</b>
-              <span>最高优惠4万</span>
+              <b>{{oldHouseNewArr[3].houseAddress.community}}</b>
+              <span>{{oldHouseNewArr[3].houseAbout.allPrice}}万元</span>
             </div>
             <div class="content">
               <span>区域：荔城大道北
@@ -224,17 +221,17 @@
             </div>
           </div>
         </div>
-        <div class="pic-box">
-          <a href="#" class="wrapper">
-            <img src="assets/images/home/newHouse/mingchuihuayuan.jpg" alt="">
+        <div class="pic-box" ng-click="toOldHouseShow(oldHouseNewArr[4])">
+          <a class="wrapper">
+            <img src="assets/images/oldHouse/{{oldHouseNewArr[4].imgUrls[0]}}" alt="">
           </a>
           <div class="over"></div>
 
-          <div class="toTop" click="alert('1')">
+          <div class="toTop">
             <div class="title">
               <!--<em>鸣翠花园</em>-->
-              <b>鸣翠花园</b>
-              <span>最高优惠7万</span>
+              <b>{{oldHouseNewArr[4].houseAddress.community}}</b>
+              <span>{{oldHouseNewArr[4].houseAbout.allPrice}}万元</span>
             </div>
             <div class="content">
               <span>区域：工业大道南

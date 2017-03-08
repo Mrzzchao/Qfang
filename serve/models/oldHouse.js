@@ -66,6 +66,13 @@ OldHouseSchema.statics = {
             .sort("meta.updateAt")
             .exec(cb)
     },
+    fetchNew: function(cb) {
+        return this
+            .find({})
+            .sort("meta.updateAt")
+            .limit(5)
+            .exec(cb)
+    },
     findById: function(key, cb) {
         return this
             .findOne({showKeyword: key})

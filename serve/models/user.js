@@ -8,6 +8,14 @@ var UserSchema = new mongoose.Schema({
     userId: Number,
     username: String,
     password: String,
+    avatar: {
+        type: String,
+        default: "no-userphoto.gif"
+    },
+    loveName: {
+        type: String,
+        default: ""
+    },
     meta: {
         createAt: {
             type: Date,
@@ -62,7 +70,7 @@ UserSchema.statics = {
             if(err) console.log(err);
             if(result.password == password) {
                 self.isMatchFlag = true;
-                self.resId = result.userId;
+                self.user = result;
             }
             else
                 self.isMatchFlag = false;
@@ -70,6 +78,6 @@ UserSchema.statics = {
     },
     isMatchFlag: false,
     isExistFlag: false,
-    resId: 1
+    user: 1
 }
 module.exports = mongoose.model("UserModel", UserSchema);

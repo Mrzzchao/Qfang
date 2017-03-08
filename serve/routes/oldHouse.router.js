@@ -18,6 +18,12 @@ router.post('/oldHouse', function(req, res) {
 		res.json(result);
 	});
 })
+router.get('/oldHouse/new', function(req, res) {
+	OldHouseModel.fetchNew(function(err, result) {
+		if (err) console.log(err);
+		res.json(result);
+	});
+})
 router.post('/oldHouse/upload/msg', function(req, res) {
 	//res.send("上传成功1");
 	console.log(req.param);
@@ -32,6 +38,27 @@ router.post('/saleRecord', function(req, res) {
 	OldHouseModel.fetchRecord(req.body.userId, function(err, result) {
 		if (err) console.log(err);
 		res.json(result);
+	});
+})
+router.post('/saleRecord/removeOne', function(req, res) {
+	OldHouseModel.remove({"oldHouseId": req.body.houseId}, function(err) {
+		if (err) console.log(err);
+		res.json({result:"已删除"});
+	});
+})
+router.post('/saleRecord/removeAll', function(req, res) {
+	OldHouseModel.find({"userId": req.body.userId}, function(err, docs) {
+		if(err) {
+			console.log(err);
+			return;
+		}
+		if(docs) {
+			docs.forEach(function(elem) {
+				elem.remove();
+			})
+			console.log("delete success!");
+			return;
+		}
 	});
 })
 router.post('/houseSave', function(req, res) {

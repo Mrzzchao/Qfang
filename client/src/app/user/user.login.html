@@ -2,11 +2,11 @@
     <a class="col-md-6" ng-class="{on: isSelected}" ui-sref="user.login">登录</a>
     <a class="col-md-6" ng-class="{on: !isSelected}" ui-sref="user.register">账号注册</a>
 </div>
-<div class="row telNum">
-    <input type="text" name="username" hidden="true">
-    <input type="text" class="form-control" placeholder="请输入手机号码" name="username" ng-model="login.username" ng-pattern="pattern.reg.phone" required>
-</div>
 <ng-form class="login-form user-form" name="loginForm" id="loginForm">
+    <div class="row telNum">
+        <input type="text" name="username" hidden="true">
+        <input type="text" class="form-control" placeholder="请输入手机号码" name="username" ng-model="login.username" ng-pattern="pattern.reg.phone" required>
+    </div>
     <div class="row alert alert-info" ng-show="loginForm.username.$error.pattern">
       {{pattern.msg.phone}}
     </div>

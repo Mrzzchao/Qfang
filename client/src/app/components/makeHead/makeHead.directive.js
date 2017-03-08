@@ -24,12 +24,11 @@
     return directive;
 
     /** @ngInject */
-    function MakeHeadController($scope) {
-        // $scope.message = {
-        //     title: ["二手好房", "为你而选"],
-        //     caption: ["特色精选", "选择自己喜欢的类型"],
-        //     more: "更多二手房 >>"
-        // };
+    function MakeHeadController($scope, $state, oldHouseArr) {
+        $scope.toUrl = function() {
+            oldHouseArr.requestAllData();
+            oldHouseArr.setSearchKey("");
+        }
     }
   }
 

@@ -1,0 +1,22 @@
+<ng-form name="saleForm2" id="saleForm2">
+    <div class="row input-item">
+        <span class="em1"></span>旧密码<span class="space"></span><input type="password" name="oldPassword" placeholder="请输入密码" ng-model="userMsg.oldPassword" ng-pattern="pattern.reg.password" required>
+        <div class="row alert alert-info" ng-show="saleForm2.oldPassword.$error.pattern">
+            {{pattern.msg.password}}
+        </div>
+    </div>
+
+    <div class="row input-item">
+         <span class="em1"></span>新密码<span class="space"></span><input type="password" name="newPassword" id="newPassword" placeholder="请输入新密码，6-20个字符" ng-model="userMsg.newPassword" ng-pattern="pattern.reg.password" required>
+         <div class="row alert alert-info" ng-show="saleForm2.newPassword.$error.pattern">
+             {{pattern.msg.password}}
+         </div>
+    </div>
+    <div class="row input-item">
+         确认密码<span class="space"></span><input type="password" name="repeatPassword" ng-model='userMsg.repeatPassword' pw-check='newPassword' required placeholder="请重复输入密码">
+         <div class="row alert alert-info" ng-show="saleForm2.repeatPassword.$error.pwmatch">
+              {{pattern.msg.repeatPassword}}
+         </div>
+    </div>
+    <div class="input-item"><button type="button" name="button" class="subBtn" ng-click="updatePassword()" ng-disabled='saleForm2.$invalid'>提交修改</button></div>
+</ng-form>

@@ -35,7 +35,7 @@
 						$('#mymodal').modal('show');
 
 					} else {
-						successLogin(data.userId);
+						successLogin(data);
 					}
 
 				}).error(function(data) {
@@ -45,10 +45,10 @@
 			})();
 		}
 
-		function successLogin(userId) {
+		function successLogin(data) {
 			console.log($scope.remFlag);
 			$scope.toUrl = "home";
-			user.setUser($scope.login.username, $scope.login.password, $scope.remFlag, userId);
+			user.setUser($scope.login.username, $scope.login.password, $scope.remFlag, data);
 			user.setStatu(1);
 			$scope.msg = '登录成功, ' + 　count + '秒后自动跳转主页面';
 			$scope.toShow = true;

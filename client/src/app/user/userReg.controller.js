@@ -44,14 +44,13 @@
 								$scope.msg = data.err.name;
 								$('#mymodal').modal('show');
 							}
-							//   console.log(data);
-							console.log("11");
+						}
+						else {
 							successRegister();
 						}
 
 					}).error(function(data) {
 						$scope.msg = '未知错误, 请重试';
-													console.log("33");
 						$('#mymodal').modal('show');
 					});
 				})();
@@ -61,7 +60,7 @@
 			user.autoSetUser($scope.register.username, $scope.register.password);
 			$scope.msg = '注册成功, ' + 　count + '秒后自动跳转登录页面';
 			$scope.toShow = true;
-										console.log("44");
+			$scope.toUrl = "user.login";
 			$('#mymodal').modal('show');
 			$scope.timer = $interval(function() {
 				$scope.msg = '注册成功, ' + 　count + '秒后自动跳转登录页面';

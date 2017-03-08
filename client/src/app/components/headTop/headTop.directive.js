@@ -28,7 +28,7 @@
 			$scope.quit = function() {
 				console.log("quit");
 				$scope.userMsg = '<span role="presentation" class="dropdown menu-item1 menu-item-login" ng-show="style.isExist"><a ui-sref="user.login" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录</a></span> <span class="line" ng-show="style.isExist"></span> <span role="presentation" class="dropdown menu-item1 menu-item-register" ng-show="style.isExist"><a ui-sref="user.register" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">注册</a></span>';
-				user.setStatu(0);
+				user.clearUser();
 				$state.go("home");
 			}
 			$scope.toSaleRecord = function() {
@@ -110,7 +110,7 @@
 				$scope.userMsg = '<span role="presentation" class="dropdown menu-item1 menu-item-login" ng-show="style.isExist"><a ui-sref="user.login" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">登录</a></span> <span class="line" ng-show="style.isExist"></span> <span role="presentation" class="dropdown menu-item1 menu-item-register" ng-show="style.isExist"><a ui-sref="user.register" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">注册</a></span>';
 			}
 			else {
-				$scope.userMsg = '<span class="welcome" ><a ng-click="toSaleRecord()">' + data.username + '</a>,</span> <a ng-click="quit()"">退出</a>';
+				$scope.userMsg = '<span class="welcome" ><a ng-click="toSaleRecord()">' + data.name + '</a>,</span> <a ng-click="quit()"">退出</a>';
 			}
 		}
 	}

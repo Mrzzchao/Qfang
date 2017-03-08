@@ -1,11 +1,13 @@
 <div class="title">
     已委托房源
+    <a ng-click="saveDeleteAll2()" class=" pull-right"><span class="delete"><span class="icon-user icon-delete"></span> 删除所有收藏记录</span></a>
 </div>
 <div class="right-bottom">
-    <div class="sale-item row" ng-repeat="oldHouseMsg in oldHouseRecordArr">
+    <div class="sale-item row" ng-repeat="oldHouseMsg in oldHouseRecordArr" id="item{{oldHouseMsg.oldHouseId}}">
         <img ng-src="/assets/images/oldHouse/{{oldHouseMsg.imgUrls[0]}}" alt="" width="147" height="110">
         <div class="text">
             <span class="house-info">{{oldHouseMsg.showKeyword}}</span>
+            <div class="deleteOne pull-right"><a ng-click="saveDeleteOne2(oldHouseMsg.oldHouseId)"><span class="delete"><span class="icon-user icon-delete"></span> 删除记录</span></a></div>
             <div class="allPrice" >目前售价：<span class="num">{{oldHouseMsg.houseAbout.allPrice}}</span><span class="word">万元</span></div>
         </div>
     </div>

@@ -67,6 +67,10 @@ a {
     outline: 0;
     star: expression(this.onFocus=this.blur());
     transition: color .3s,background-color .3s,border-color .3s;
+    // transition: all .3s;
+}
+h2 {
+    transition: color .3s;
 }
 
 li {

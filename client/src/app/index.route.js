@@ -95,6 +95,24 @@
         controller: 'UserManage',
         controllerAs: 'UserManageCtrl'
       })
+      .state('userManage.user', {
+        url: '/userManage.user',
+        templateUrl: 'app/userManage/userManage.user.html',
+        controller: 'UserManage',
+        controllerAs: 'UserManageCtrl'
+      })
+      .state('userManage.user.set1', {
+        url: '/userManage.user.set1',
+        templateUrl: 'app/userManage/userManage.user.set1.html',
+        controller: 'UserManage',
+        controllerAs: 'UserManageCtrl'
+      })
+      .state('userManage.user.set2', {
+        url: '/userManage.user.set2',
+        templateUrl: 'app/userManage/userManage.user.set2.html',
+        controller: 'UserManage',
+        controllerAs: 'UserManageCtrl'
+      })
     $urlRouterProvider.otherwise('/');
   }
 

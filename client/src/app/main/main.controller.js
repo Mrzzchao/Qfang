@@ -6,19 +6,20 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, user, oldHouseArr) {
+  function MainController($scope, $state, user, oldHouseArr, oldHouseShow) {
       var self = this;
       var count = 3;
       $scope.isLogin = false;
+      $scope.oldHouseNewArr = oldHouseArr.getData3();
       $scope.oldHouseMes = {
           title: ["二手好房", "为你而选"],
           caption: ["特色精选", "选择自己喜欢的类型"],
           more: "更多二手房 >>"
       };
       $scope.newHouseMes = {
-          title: ["热门新盘", "品质优选"],
-          caption: ["精选特惠新盘", "享最高额度优惠"],
-          more: "更多广州新房>>"
+          title: ["最新房源", "品质优选"],
+          caption: ["精选特惠房源", "享最高额度优惠"],
+          more: "更多房源>>"
       }
 
       $scope.style = {
@@ -80,6 +81,14 @@
       $scope.searchData = function() {
           oldHouseArr.setSearchKey($scope.search);
           oldHouseArr.requestAllData();
+      }
+      $scope.toOldHouseShow = function(data) {
+          console.log("1-1-1-1-1-");
+          console.log(data);
+          oldHouseShow.setData(data);
+          $state.go("oldHouseShow", {}, {
+              reload: true
+          });
       }
   }
 })();

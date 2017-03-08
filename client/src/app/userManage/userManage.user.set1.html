@@ -1,0 +1,11 @@
+<ng-form name="saleForm1" id="saleForm1">
+    <div class="input-item">
+        头<span class="space"></span>像 <span class="space"></span><input id="input-id" type="file" required>
+    </div>
+
+    <div class="input-item">
+         昵<span class="space"></span>称 <span class="space"></span><input type="text" placeholder="请输入昵称" ng-model="userMsg.loveName" required>
+    </div>
+
+    <div class="input-item"><button type="button" name="button" class="subBtn" ng-click="updateUser()" ng-disabled='saleForm1.$invalid'>保存修改</button></div>
+</ng-form>
